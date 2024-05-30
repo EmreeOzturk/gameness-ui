@@ -8,9 +8,9 @@ type MissionSectionProps = {
 
 const MissionSection: React.FC<MissionSectionProps> = ({ title }) => {
   return (
-    <div className="no-visible-scrollbar flex flex-col pt-36 overflow-y-auto  border rounded-xl py-4 h-[90%] w-1/2 items-start justify-center">
-      <p>{title}</p>
-      <div className="gap-4 mt-20 flex flex-col p-4 w-full">
+    <div className="no-visible-scrollbar flex flex-col py-4 overflow-y-auto border rounded-xl h-[90%] w-1/2 items-start justify-start">
+      <p className="text-center w-full">{title}</p>
+      <div className="gap-4  flex  flex-col p-4 w-full">
         {mockMissionData.map((mission, index) => (
           <MissionCard
             key={index}
