@@ -63,7 +63,7 @@ const MissionsPage = () => {
         <div className="flex flex-col items-center justify-center gap-4 w-full">
           <div className="bg-gradient-to-br text-center from-cyan-800 to-zinc-300 text-clip bg-clip-text text-transparent text-5xl lg:text-7xl font-bold">
             <h1>
-              GNESS <br /> POINTS
+              DATS <br /> POINTS
             </h1>
           </div>
 
@@ -76,20 +76,10 @@ const MissionsPage = () => {
         </div>
         <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
       </div>
-      <div className="h-[40rem]  [perspective:1000px] mb-32 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
-        <Tabs tabs={tabs} />
+      <div className="h-[40rem] z-10  [perspective:1000px] mb-32 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
+        <Tabs activeTabClassName="border-red-500" tabs={tabs} />
       </div>
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4 mt-10 w-full">
-        {mockMissionData.map((mission, index) => (
-          <MissionCard
-            key={index}
-            title={mission.title}
-            description={mission.description}
-            points={mission.points}
-          />
-        ))} */}
-      {/* <BackgroundBeams /> */}
-      {/* </div> */}
+      <BackgroundBeams />
     </div>
   );
 };
