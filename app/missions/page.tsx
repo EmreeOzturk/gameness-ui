@@ -61,7 +61,7 @@ const MissionsPage = () => {
     <div className="flex flex-col items-center justify-center w-full pt-32">
       <div className=" w-full lg:w-full h-full items-start lg:mr-auto justify-center flex flex-col gap-4">
         <div className="flex flex-col items-center justify-center gap-4 w-full">
-          <div className="bg-gradient-to-br text-center from-red-800 to-zinc-300 text-clip bg-clip-text text-transparent text-5xl lg:text-7xl font-bold">
+          <div className="bg-gradient-to-br text-center from-cyan-800 to-zinc-300 text-clip bg-clip-text text-transparent text-5xl lg:text-7xl font-bold">
             <h1>
               GNESS <br /> POINTS
             </h1>
@@ -74,7 +74,7 @@ const MissionsPage = () => {
             <InfoCard title={"REFERRAL MULTIPLER"} data={4} />
           </div>
         </div>
-        <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
+        <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
       </div>
       <div className="h-[40rem]  [perspective:1000px] mb-32 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
         <Tabs tabs={tabs} />
