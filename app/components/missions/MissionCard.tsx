@@ -9,11 +9,11 @@ const MissionCard: React.FC<MissionCardProps> = ({
   onClick,
 }) => {
   return (
-    <WobbleCard containerClassName="col-span-1  h-full bg-transparent">
+    <WobbleCard containerClassName="h-48 ">
       <div>
-        <div className="w-14 h-14 rounded-md bg-gray-900 flex justify-center items-center">
+        {/* <div className="w-14 h-14 rounded-md bg-gray-900 flex justify-center items-center">
           icon
-        </div>
+        </div> */}
         <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold bg-gradient-to-br from-slate-200 to-slate-500 text-transparent tracking-tight  bg-clip-text">
           {title}
         </h2>
