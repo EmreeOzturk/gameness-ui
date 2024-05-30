@@ -31,12 +31,12 @@ const mockMissionData: MissionCardProps[] = [
     points: 10,
     onClick: () => console.log("Daily check-in mission clicked"),
   },
-  {
-    title: "Watch Tutorial",
-    description: "Watch a tutorial video to learn about crypto trading.",
-    points: 20,
-    onClick: () => console.log("Tutorial mission clicked"),
-  },
+  // {
+  //   title: "Watch Tutorial",
+  //   description: "Watch a tutorial video to learn about crypto trading.",
+  //   points: 20,
+  //   onClick: () => console.log("Tutorial mission clicked"),
+  // },
   // {
   //   title: "Join Community",
   //   description: "Join our community forum to discuss crypto.",
