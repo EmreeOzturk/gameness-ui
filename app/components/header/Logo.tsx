@@ -6,7 +6,7 @@ const Logo = () => {
       href="/"
       className="flex items-center z-20 justify-center cursor-pointer"
     >
-      <Image src="/logo.webp" alt="Gameness" width={300} height={200} />
+      <Image src="/mavi.png" alt="Dats Project" width={300} height={200} />
     </Link>
   );
 };
