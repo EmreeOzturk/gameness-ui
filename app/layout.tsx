@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="antialiased">
-      <body className={`${inter.className} max-h-screen h-screen  overflow-hidden relative `}>
+      <body className={`${inter.className} relative `}>
         <div className="max-w-7xl mx-auto">
           <Header />
           {children}
