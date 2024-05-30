@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/app/lib/cn";
-
+import { Lock, LockOpen } from "lucide-react";
 type Tab = {
   title: string;
   value: string;
@@ -54,7 +54,7 @@ export const Tabs = ({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative bg-gray-500 px-8 py-2 rounded-full disabled:bg-gray-800 disabled:text-gray-500/20 dark:bg-zinc-800  dark:hover:bg-zinc-700 dark:hover:text-zinc-100 hover:bg-gray-700 hover:text-gray-100 transition-all duration-300 ease-in-out z-20 text-lg font-semibold",
+              "relative border border-cyan-950  px-12 py-3 rounded-full disabled:bg-gray-800 disabled:text-gray-500/20 dark:bg-zinc-800  dark:hover:bg-zinc-700 dark:hover:text-zinc-100  hover:text-gray-100 transition-all duration-300 ease-in-out z-20 text-lg font-semibold",
               tabClassName
             )}
             style={{
@@ -67,13 +67,14 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-900 z-10 dark:bg-zinc-800 rounded-full ",
+                  "absolute inset-1 bg-gray-900  z-10 dark:bg-zinc-800 rounded-full ",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="relative block z-20 text-zinc-300 dark:text-white">
+            <span className="relative flex  gap-4 items-center z-20 text-zinc-300 dark:text-white">
+              {tab.disabled ? <Lock size={24} /> : <LockOpen size={24} />}
               {tab.title}
             </span>
           </button>
