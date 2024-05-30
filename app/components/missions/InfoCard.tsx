@@ -14,7 +14,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ title, data }) => {
         height: "0",
         borderLeft: "100px solid transparent",
         borderRight: "100px solid transparent",
-        borderTop: "160px solid #e8040485",
+        borderTop: "170px solid #0485e85d",
         borderBottom: "0",
       }}
       className="relative"
