@@ -1,6 +1,6 @@
 "use client";
 import type { MissionCardProps } from "@/app/data/missions";
-import { Button } from "../ui/moving-border";
+import { WobbleCard } from "../ui/wobble-card";
 const MissionCard: React.FC<MissionCardProps> = ({
   title,
   description,
@@ -9,30 +9,19 @@ const MissionCard: React.FC<MissionCardProps> = ({
   onClick,
 }) => {
   return (
-    <div
-      className="w-full flex flex-col h-48 border rounded-md"
-      onClick={onClick}
-    >
-      <h2 className="text-2xl text-zinc-300 font-bold">{title}</h2>
-      <p className="text-sm text-slate-300 overflow-hidden overflow-ellipsis h-16">
-        {description}
-      </p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <span>+{points} GNESS Point</span>
-        <button
-          className="bg-red-500/40 text-zinc-300 px-4 py-2 rounded-md"
-          onClick={onClick}
-        >
-          Complete
-        </button>
+    <WobbleCard containerClassName="col-span-1  h-full bg-transparent">
+      <div>
+        <div className="w-14 h-14 rounded-md bg-gray-900 flex justify-center items-center">
+          icon
+        </div>
+        <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold bg-gradient-to-br from-slate-200 to-slate-500 text-transparent tracking-tight  bg-clip-text">
+          {title}
+        </h2>
+        <p className="mt-4 text-left  text-base/6 text-neutral-200">
+          {description}
+        </p>
       </div>
-    </div>
+    </WobbleCard>
   );
 };
 
