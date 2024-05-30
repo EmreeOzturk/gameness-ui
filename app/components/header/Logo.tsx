@@ -1,9 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 const Logo = () => {
   return (
-    <div className="flex items-center justify-center">
+    <Link
+      href="/"
+      className="flex items-center z-20 justify-center cursor-pointer"
+    >
       <Image src="/logo.webp" alt="Gameness" width={300} height={200} />
-    </div>
+    </Link>
   );
 };
 
