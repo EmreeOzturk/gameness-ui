@@ -17,6 +17,7 @@ export function Button({
   containerClassName,
   borderClassName,
   duration,
+  reverse,
   className,
   ...otherProps
 }: {
@@ -27,6 +28,7 @@ export function Button({
   borderClassName?: string;
   duration?: number;
   className?: string;
+  reverse?: boolean;
   [key: string]: any;
 }) {
   return (
@@ -44,10 +46,10 @@ export function Button({
         className="absolute inset-0"
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
       >
-        <MovingBorder duration={duration} rx="30%" ry="30%">
+        <MovingBorder reverse={reverse} duration={duration} rx="100%" ry="100%">
           <div
             className={cn(
-              "h-24 w-24 opacity-[0.5] bg-[radial-gradient(var(--sky-600)_40%,transparent_60%)]",
+              "h-24 w-24 opacity-[0.5] bg-[radial-gradient(var(--sky-600)_40%,transparent_20%)]",
               borderClassName
             )}
           />
@@ -74,12 +76,14 @@ export const MovingBorder = ({
   duration = 2400,
   rx,
   ry,
+  reverse,
   ...otherProps
 }: {
   children: React.ReactNode;
   duration?: number;
   rx?: string;
   ry?: string;
+  reverse?: boolean;
   [key: string]: any;
 }) => {
   const pathRef = useRef<any>();
@@ -91,16 +95,25 @@ export const MovingBorder = ({
       const pxPerMillisecond = length / duration;
       progress.set((time * pxPerMillisecond) % length);
     }
+    if (reverse) {
+      progress.set(length - progress.get());
+    }
   });
 
   const x = useTransform(
     progress,
     (val) => pathRef.current?.getPointAtLength(val).x
   );
+  if (reverse) {
+    x.set(-x.get());
+  }
   const y = useTransform(
     progress,
     (val) => pathRef.current?.getPointAtLength(val).y
   );
+  if (reverse) {
+    y.set(-y.get());
+  }
 
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
 
