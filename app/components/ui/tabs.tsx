@@ -54,8 +54,9 @@ export const Tabs = ({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative border border-cyan-950 disabled:border-none  px-12 py-3 rounded-full disabled:bg-gray-800 disabled:text-gray-500/20 dark:bg-zinc-800  dark:hover:bg-zinc-700 dark:hover:text-zinc-100  hover:text-gray-100 transition-all duration-300 ease-in-out z-20 text-lg font-semibold",
-              tabClassName
+              "relative border border-sky-950 disabled:border-none  px-12 py-3 rounded-full disabled:bg-gray-800 disabled:text-gray-500/20 dark:bg-zinc-800  dark:hover:bg-zinc-700 dark:hover:text-zinc-100  hover:text-gray-100 transition-all duration-300 ease-in-out z-20 text-lg font-semibold",
+              tabClassName,
+              active.value === tab.value && "border-sky-700 text-zinc-100"
             )}
             style={{
               transformStyle: "preserve-3d",
@@ -67,7 +68,7 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-1 bg-gray-900  z-10 dark:bg-zinc-800 rounded-full ",
+                  "absolute inset-1  bg-gray-900 z-10 dark:bg-zinc-800 rounded-full ",
                   activeTabClassName
                 )}
               />
