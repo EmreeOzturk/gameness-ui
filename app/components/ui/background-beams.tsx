@@ -100,16 +100,16 @@ export const BackgroundBeams = React.memo(
                   y2: "0%",
                 }}
                 animate={{
-                  x1: ["0%", "100%"],
-                  x2: ["0%", "95%"],
-                  y1: ["0%", "100%"],
+                  x1: ["15%", "90%"],
+                  x2: ["10%", "95%"],
+                  y1: ["0%", "90%"],
                   y2: ["0%", `${93 + Math.random() * 8}%`],
                 }}
                 transition={{
-                  duration: Math.random() * 30 + 5,
+                  duration: Math.random() * 10 + 10,
                   ease: "easeInOut",
                   repeat: Infinity,
-                  delay: Math.random() * 5,
+                  delay: 0,
                 }}
               >
                 <stop stopColor="#4744f5" stopOpacity="0"></stop>
