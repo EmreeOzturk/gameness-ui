@@ -2,54 +2,38 @@
 import { BackgroundBeams } from "../components/ui/background-beams";
 import InfoCard from "../components/missions/InfoCard";
 import { Tabs } from "../components/ui/tabs";
-import EpoachTab from "../components/tabs/EpoachTab";
+import Epoch from "../components/tabs/Epoch";
 import { MovingBorder } from "../components/ui/moving-border";
 import { CircleCheck, Users, Lollipop, Gem } from "lucide-react";
 
 const tabs = [
   {
-    title: "1. Epoach",
-    value: "epoach1",
+    title: "1. Epoch",
+    value: "epoch1",
     content: (
-      <EpoachTab
-        title="Epoach 1"
-        description="Epoach 1 Description"
-        points={100}
-      />
+      <Epoch title="Epoch 1" description="Epoch 1 Description" points={100} />
     ),
   },
   {
-    title: "2. Epoach",
-    value: "epoach2",
+    title: "2. Epoch",
+    value: "epoch2",
     content: (
-      <EpoachTab
-        title="Epoach 2"
-        description="Epoach 2 Description"
-        points={200}
-      />
+      <Epoch title="Epoch 2" description="Epoch 2 Description" points={200} />
     ),
   },
   {
-    title: "3. Epoach",
-    value: "epoach3",
+    title: "3. Epoch",
+    value: "epoch3",
     content: (
-      <EpoachTab
-        title="Epoach 3"
-        description="Epoach 3 Description"
-        points={300}
-      />
+      <Epoch title="Epoch 3" description="Epoch 3 Description" points={300} />
     ),
     disabled: true,
   },
   {
-    title: "4. Epoach",
-    value: "epoach4",
+    title: "4. Epoch",
+    value: "epoch4",
     content: (
-      <EpoachTab
-        title="Epoach 4"
-        description="Epoach 4 Description"
-        points={400}
-      />
+      <Epoch title="Epoch 4" description="Epoch 4 Description" points={400} />
     ),
     disabled: true,
   },
