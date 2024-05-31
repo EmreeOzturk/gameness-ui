@@ -6,158 +6,245 @@ export type MissionCardProps = {
   onClick?: () => void;
 };
 
-const mockMissionData: MissionCardProps[] = [
+const week1WeeklyTasks: MissionCardProps[] = [
   {
-    title: "Complete Your Profile",
-    description: "Fill out your profile information to earn points.",
+    title: "Join Telegram Channel",
+    description: "Join our Telegram channel to stay updated.",
+    points: 30,
+  },
+  {
+    title: "Join Discord Channel",
+    description: "Join our Discord channel to engage with the community.",
+    points: 30,
+  },
+  {
+    title: "Follow on Twitter",
+    description: "Follow us on Twitter for the latest updates.",
+    points: 30,
+  },
+  {
+    title: "Follow on Medium",
+    description: "Follow us on Medium to read our articles.",
+    points: 30,
+  },
+  {
+    title: "Upvote on Certik",
+    description: "Upvote our project on Certik to show your support.",
+    points: 30,
+  },
+  {
+    title: "Mint Aegis NFT",
+    description: "Mint an Aegis NFT to add to your collection.",
     points: 50,
-    onClick: () => console.log("Profile mission clicked"),
   },
-  {
-    title: "First Trade",
-    description: "Make your first trade to earn points.",
-    points: 100,
-    onClick: () => console.log("First trade mission clicked"),
-  },
-  {
-    title: "Invite a Friend",
-    description: "Invite a friend to join the app and earn points.",
-    points: 150,
-    onClick: () => console.log("Invite mission clicked"),
-  },
+];
+
+const week1DailyTasks: MissionCardProps[] = [
   {
     title: "Daily Check-In",
     description: "Check in daily to earn points.",
-    points: 10,
-    onClick: () => console.log("Daily check-in mission clicked"),
+    points: 5,
   },
-  // {
-  //   title: "Watch Tutorial",
-  //   description: "Watch a tutorial video to learn about crypto trading.",
-  //   points: 20,
-  //   onClick: () => console.log("Tutorial mission clicked"),
-  // },
-  // {
-  //   title: "Join Community",
-  //   description: "Join our community forum to discuss crypto.",
-  //   points: 30,
-  //   onClick: () => console.log("Community mission clicked"),
-  // },
-  // {
-  //   title: "Complete Survey",
-  //   description: "Complete a survey to help us improve.",
-  //   points: 40,
-  //   onClick: () => console.log("Survey mission clicked"),
-  // },
-  // {
-  //   title: "Set Up 2FA",
-  //   description: "Set up two-factor authentication for your account.",
-  //   points: 60,
-  //   onClick: () => console.log("2FA mission clicked"),
-  // },
-  // {
-  //   title: "Read Article",
-  //   description: "Read an article about crypto trends.",
-  //   points: 15,
-  //   onClick: () => console.log("Article mission clicked"),
-  // },
-  // {
-  //   title: "Follow Us on Twitter",
-  //   description: "Follow our official Twitter account.",
-  //   points: 25,
-  //   onClick: () => console.log("Twitter mission clicked"),
-  // },
-  // {
-  //   title: "Join Telegram Group",
-  //   description: "Join our official Telegram group.",
-  //   points: 25,
-  //   onClick: () => console.log("Telegram mission clicked"),
-  // },
-  // {
-  //   title: "Complete KYC",
-  //   description: "Complete the KYC process to verify your identity.",
-  //   points: 200,
-  //   onClick: () => console.log("KYC mission clicked"),
-  // },
-  // {
-  //   title: "Deposit Funds",
-  //   description: "Deposit funds into your account.",
-  //   image: "/images/deposit.png",
-  //   points: 75,
-  //   onClick: () => console.log("Deposit mission clicked"),
-  // },
-  // {
-  //   title: "Withdraw Funds",
-  //   description: "Withdraw funds from your account.",
-  //   points: 75,
-  //   onClick: () => console.log("Withdraw mission clicked"),
-  // },
-  // {
-  //   title: "Trade $1000",
-  //   description: "Trade a total of $1000 worth of crypto.",
-  //   points: 300,
-  //   onClick: () => console.log("Trade $1000 mission clicked"),
-  // },
-  // {
-  //   title: "Stake Tokens",
-  //   description: "Stake your tokens to earn rewards.",
-  //   points: 120,
-  //   onClick: () => console.log("Stake mission clicked"),
-  // },
-  // {
-  //   title: "Vote on Proposal",
-  //   description: "Participate in a governance vote.",
-  //   points: 50,
-  //   onClick: () => console.log("Vote mission clicked"),
-  // },
-  // {
-  //   title: "Join Beta Program",
-  //   description: "Join our beta testing program.",
-  //   points: 80,
-  //   onClick: () => console.log("Beta mission clicked"),
-  // },
-  // {
-  //   title: "Complete Quiz",
-  //   description: "Complete a quiz to test your crypto knowledge.",
-  //   points: 35,
-  //   onClick: () => console.log("Quiz mission clicked"),
-  // },
-  // {
-  //   title: "Refer 5 Friends",
-  //   description: "Refer 5 friends to join the app.",
-  //   points: 250,
-  //   onClick: () => console.log("Refer 5 friends mission clicked"),
-  // },
-  // {
-  //   title: "Earn $100",
-  //   description: "Earn a total of $100 through trading.",
-  //   points: 400,
-  //   onClick: () => console.log("Earn $100 mission clicked"),
-  // },
-  // {
-  //   title: "Create a Wallet",
-  //   description: "Create a new crypto wallet.",
-  //   points: 70,
-  //   onClick: () => console.log("Wallet mission clicked"),
-  // },
-  // {
-  //   title: "Join Discord",
-  //   description: "Join our official Discord server.",
-  //   points: 25,
-  //   onClick: () => console.log("Discord mission clicked"),
-  // },
-  // {
-  //   title: "Participate in AMA",
-  //   description: "Participate in an Ask Me Anything session.",
-  //   points: 45,
-  //   onClick: () => console.log("AMA mission clicked"),
-  // },
-  // {
-  //   title: "Share on Facebook",
-  //   description: "Share our app on Facebook.",
-  //   points: 20,
-  //   onClick: () => console.log("Facebook mission clicked"),
-  // },
+  {
+    title: "Share a Tweet",
+    description: "Share a tweet about the DATS project using the #depin tag.",
+    points: 20,
+  },
+  {
+    title: "Engage on Twitter",
+    description: "Like, retweet, and comment on our tweets.",
+    points: 10,
+  },
+  {
+    title: "Discord Greetings",
+    description: "Post a 'good morning' or 'good night' message on Discord.",
+    points: 5,
+  },
 ];
 
-export default mockMissionData;
+const week2WeeklyTasks: MissionCardProps[] = [
+  {
+    title: "Share a Photo",
+    description: "Share a photo using the application.",
+    points: 30,
+  },
+  {
+    title: "Quote Tweet DATS & VirusTotal",
+    description: "Quote tweet DATS & VirusTotal.",
+    points: 10,
+  },
+  {
+    title: "Quote Tweet DATS & GlobalSign",
+    description: "Quote tweet DATS & GlobalSign.",
+    points: 10,
+  },
+  {
+    title: "Mint Blaze NFT",
+    description: "Mint a Blaze NFT to add to your collection.",
+    points: 50,
+  },
+  {
+    title: "Subscribe on YouTube",
+    description: "Subscribe to our YouTube channel.",
+    points: 30,
+  },
+  {
+    title: "Follow on LinkedIn",
+    description: "Follow us on LinkedIn for professional updates.",
+    points: 30,
+  },
+  {
+    title: "Obtain Tokens from Faucet",
+    description: "Obtain tokens from the faucet.",
+    points: 40,
+  },
+  {
+    title: "Download DATS App",
+    description:
+      "Download the DATS App and dedicate your resources to DDoS Test & Cybersecurity Research.",
+    points: 75,
+  },
+];
+
+const week2DailyTasks: MissionCardProps[] = [
+  {
+    title: "Daily Check-In",
+    description: "Check in daily to earn points.",
+    points: 5,
+  },
+  {
+    title: "Share a Tweet",
+    description: "Share a tweet about the DATS project using the #depin tag.",
+    points: 20,
+  },
+  {
+    title: "Engage on Twitter",
+    description: "Like, retweet, and comment on our tweets.",
+    points: 10,
+  },
+  {
+    title: "Discord Greetings",
+    description: "Post a 'good morning' or 'good night' message on Discord.",
+    points: 5,
+  },
+  {
+    title: "Invite Friends to DATS App",
+    description: "Invite friends to the DATS App.",
+    points: 10,
+  },
+  {
+    title: "Engage in App Activities",
+    description: "Engage in activities within the app for 1 hour.",
+    points: 30,
+  },
+];
+
+const week3WeeklyTasks: MissionCardProps[] = [
+  {
+    title: "Mint an ID",
+    description: "Mint an ID to add to your collection.",
+    points: 50,
+  },
+  {
+    title: "Mint Vortex NFT",
+    description: "Mint a Vortex NFT to add to your collection.",
+    points: 50,
+  },
+  {
+    title: "Approve Vulnerability Scanning",
+    description: "Approve Vulnerability Scanning service in DATS Desktop App.",
+    points: 50,
+  },
+];
+
+const week3DailyTasks: MissionCardProps[] = [
+  {
+    title: "Daily Check-In",
+    description: "Check in daily to earn points.",
+    points: 5,
+  },
+  {
+    title: "Share a Tweet",
+    description: "Share a tweet about the DATS project using the #depin tag.",
+    points: 20,
+  },
+  {
+    title: "Engage on Twitter",
+    description: "Like, retweet, and comment on our tweets.",
+    points: 10,
+  },
+  {
+    title: "Discord Greetings",
+    description: "Post a 'good morning' or 'good night' message on Discord.",
+    points: 5,
+  },
+  {
+    title: "Invite Friends to DATS App",
+    description: "Invite friends to the DATS App.",
+    points: 10,
+  },
+  {
+    title: "Engage in App Activities",
+    description: "Engage in activities within the app for 1 hour.",
+    points: 30,
+  },
+];
+
+const week4WeeklyTasks: MissionCardProps[] = [
+  {
+    title: "Mint DATS Guardian NFT",
+    description: "Mint a DATS Guardian NFT to add to your collection.",
+    points: 50,
+  },
+  {
+    title: "Explore DATS Desktop App",
+    description:
+      "Explore the new DATS Desktop App interface featuring Peaq mainnet integration.",
+    points: 50,
+  },
+  {
+    title: "Engage with MeetUp Tweet",
+    description: "Engage with the DATS Guardians MeetUp tweet.",
+    points: 50,
+  },
+  {
+    title: "Dedicate Resources",
+    description:
+      "Dedicate your resources to Super Computer & Blockchain services in DATS Desktop App.",
+    points: 75,
+  },
+];
+
+const week4DailyTasks: MissionCardProps[] = [
+  {
+    title: "Daily Check-In",
+    description: "Check in daily to earn points.",
+    points: 5,
+  },
+  {
+    title: "Share a Tweet",
+    description: "Share a tweet about the DATS project using the #depin tag.",
+    points: 20,
+  },
+  {
+    title: "Engage on Twitter",
+    description: "Like, retweet, and comment on our tweets.",
+    points: 10,
+  },
+  {
+    title: "Discord Greetings",
+    description: "Post a 'good morning' or 'good night' message on Discord.",
+    points: 5,
+  },
+];
+
+export {
+  week1WeeklyTasks,
+  week1DailyTasks,
+  week2WeeklyTasks,
+  week2DailyTasks,
+  week3WeeklyTasks,
+  week3DailyTasks,
+  week4WeeklyTasks,
+  week4DailyTasks,
+};
