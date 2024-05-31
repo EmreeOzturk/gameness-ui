@@ -96,14 +96,9 @@ const MissionsPage = () => {
       <div className="h-[40rem] z-10  [perspective:1000px] px-8 mb-20 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
         <Tabs tabs={tabs} />
       </div>
-      {/* <BackgroundBeams /> */}
+      <BackgroundBeams />
     </div>
   );
 };
 
 export default MissionsPage;
-{
-  /* <h2 className="text-2xl lg:text-3xl text-center  font-bold text-zinc-300">
-            GNESS POINTS
-          </h2> */
-}
