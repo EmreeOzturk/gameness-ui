@@ -46,7 +46,10 @@ const tabs = [
     title: "3. Epoch",
     value: "epoch3",
     content: (
-      <Epoch title="Epoch 3" description="Epoch 3 Description" points={300}
+      <Epoch
+        title="Epoch 3"
+        description="Epoch 3 Description"
+        points={300}
         dailyTasks={week3DailyTasks}
         weeklyTasks={week3WeeklyTasks}
       />
@@ -57,7 +60,10 @@ const tabs = [
     title: "4. Epoch",
     value: "epoch4",
     content: (
-      <Epoch title="Epoch 4" description="Epoch 4 Description" points={400}
+      <Epoch
+        title="Epoch 4"
+        description="Epoch 4 Description"
+        points={400}
         dailyTasks={week4DailyTasks}
         weeklyTasks={week4WeeklyTasks}
       />
