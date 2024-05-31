@@ -6,7 +6,7 @@ const words = ` Claim, Compete, Conquer Your DATS Project Airdrop Awaits!`;
 const HeroSection = () => {
   return (
     <div className="flex w-full flex-col  lg:flex-row items-center justify-center h-screen ">
-      <div className=" w-full   lg:w-1/2 h-full items-start lg:mr-auto justify-center flex flex-col gap-4">
+      <div className=" w-full z-20  lg:w-1/2 h-full items-start lg:mr-auto justify-center flex flex-col gap-4">
         <div className="flex flex-col items-center justify-center gap-4 w-full">
           <TextGenerateEffect
             className="text-2xl w-96 lg:text-3xl text-center  font-normal text-slate-300"
