@@ -9,8 +9,8 @@ const MissionCard: React.FC<MissionCardProps> = ({
   onClick,
 }) => {
   return (
-    <WobbleCard containerClassName="h-48 select-none">
-      <div className="relative">
+    <WobbleCard containerClassName="h-48 relative select-none">
+      <div className="">
         {/* <div className="w-14 h-14 rounded-md bg-gray-900 flex justify-center items-center">
           icon
         </div> */}
@@ -23,7 +23,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
         <p className="mt-4 text-left text-base/6 text-neutral-200">
           +{points} XP
         </p>
-        <button className="absolute rounded-xl px-6 py-2 border-[.2px] border-sky-400 -right-2 -bottom-5 bg-gradient-to-br from-sky-200 to-sky-500 text-transparent text-base/6 bg-clip-text">
+        <button className="absolute rounded-xl px-6 py-2 border-[.2px] border-sky-400 right-5 bottom-5 bg-gradient-to-br from-sky-200 to-sky-500 text-transparent text-base/6 bg-clip-text">
           Start
         </button>
       </div>
