@@ -68,7 +68,7 @@ const tabs = [
         weeklyTasks={week4WeeklyTasks}
       />
     ),
-    // disabled: true,
+    disabled: true,
   },
 ];
 
