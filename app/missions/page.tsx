@@ -65,8 +65,7 @@ const MissionsPage = () => {
               DATS <br /> POINTS
             </h1>
           </div>
-
-          {/* <div className="flex items-center px-16 py-8 w-full justify-between ">
+          <div className="flex items-center px-16 py-8 w-full justify-between ">
             <InfoCard
               title={"MISSIONS COMPLETED"}
               data={10}
@@ -89,14 +88,14 @@ const MissionsPage = () => {
               icon={<Gem size={24} />}
               reverse
             />
-          </div> */}
+          </div>
         </div>
         <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-sky-600 to-transparent" />
       </div>
       <div className="h-[40rem] z-10  [perspective:1000px] px-8 mb-20 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
         <Tabs tabs={tabs} />
       </div>
-      {/* <BackgroundBeams /> */}
+      <BackgroundBeams />
     </div>
   );
 };
