@@ -5,8 +5,9 @@ type InfoCardProps = {
   title: string;
   data: number;
   icon?: ReactNode;
+  reverse?: boolean;
 };
-const InfoCard: React.FC<InfoCardProps> = ({ title, data, icon }) => {
+const InfoCard: React.FC<InfoCardProps> = ({ title, data, icon, reverse }) => {
   return (
     <div
       // style={{
@@ -33,7 +34,10 @@ const InfoCard: React.FC<InfoCardProps> = ({ title, data, icon }) => {
         </p>
       </div> */}
       <div className="select-none  tracking-wide">
-        <Button className="text-zinc-300 px-8 py-4 text-2xl flex flex-col w-64 ">
+        <Button
+          reverse={reverse}
+          className="text-zinc-300 px-8 py-4 text-2xl flex flex-col w-64 "
+        >
           <div>
             <div className="flex justify-center mb-2">{icon && icon}</div>
             <h3>
