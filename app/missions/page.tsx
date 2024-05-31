@@ -1,13 +1,10 @@
 "use client";
-import Link from "next/link";
-import MissionCard from "../components/missions/MissionCard";
 import { BackgroundBeams } from "../components/ui/background-beams";
-import mockMissionData from "../data/missions";
-import { Xicon } from "../components/icons";
 import InfoCard from "../components/missions/InfoCard";
 import { Tabs } from "../components/ui/tabs";
 import EpoachTab from "../components/tabs/EpoachTab";
-import Image from "next/image";
+import { MovingBorder } from "../components/ui/moving-border";
+import { CircleCheck, Users, Lollipop, Gem } from "lucide-react";
 
 const tabs = [
   {
@@ -42,6 +39,7 @@ const tabs = [
         points={300}
       />
     ),
+    disabled: true,
   },
   {
     title: "4. Epoach",
@@ -53,6 +51,7 @@ const tabs = [
         points={400}
       />
     ),
+    disabled: true,
   },
 ];
 
@@ -62,19 +61,42 @@ const MissionsPage = () => {
       <div className=" w-full lg:w-full h-full items-start lg:mr-auto justify-center flex flex-col gap-4">
         <div className="flex flex-col items-center justify-center gap-4 w-full">
           <div className="bg-gradient-to-br text-center from-cyan-800 to-zinc-300 text-clip bg-clip-text text-transparent text-5xl lg:text-7xl font-bold">
-            <h1>
+            <h1 className="tracking-widest">
               DATS <br /> POINTS
             </h1>
           </div>
 
           <div className="flex items-center px-16 py-8 w-full justify-between ">
-            <InfoCard title={"MISSIONS COMPLETED"} data={10} />
-            <InfoCard title={"TOTAL REFERRALS"} data={100} />
-            <InfoCard title={"REFERRAL POINTS"} data={20} />
-            <InfoCard title={"REFERRAL MULTIPLER"} data={4} />
+            {/* <MovingBorder duration={5000} rx="30%" ry="30%">
+              <div
+                className={
+                  "h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]"
+                }
+              />
+            </MovingBorder> */}
+            <InfoCard
+              title={"MISSIONS COMPLETED"}
+              data={10}
+              icon={<CircleCheck size={24} />}
+            />
+            <InfoCard
+              title={"TOTAL REFERRALS"}
+              data={100}
+              icon={<Users size={24} />}
+            />
+            <InfoCard
+              title={"REFERRAL POINTS"}
+              data={20}
+              icon={<Lollipop size={24} />}
+            />
+            <InfoCard
+              title={"REFERRAL MULTIPLER"}
+              data={4}
+              icon={<Gem size={24} />}
+            />
           </div>
         </div>
-        <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+        <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-sky-600 to-transparent" />
       </div>
       <div className="h-[40rem] z-10  [perspective:1000px] mb-32 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
         <Tabs activeTabClassName="border-red-500" tabs={tabs} />
