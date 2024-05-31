@@ -88,20 +88,22 @@ const MissionsPage = () => {
               title={"REFERRAL POINTS"}
               data={20}
               icon={<Lollipop size={24} />}
+              reverse
             />
             <InfoCard
               title={"REFERRAL MULTIPLER"}
               data={4}
               icon={<Gem size={24} />}
+              reverse
             />
           </div>
         </div>
         <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-sky-600 to-transparent" />
       </div>
       <div className="h-[40rem] z-10  [perspective:1000px] mb-32 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
-        <Tabs activeTabClassName="border-red-500" tabs={tabs} />
+        <Tabs  tabs={tabs} />
       </div>
-      <BackgroundBeams />
+      {/* <BackgroundBeams /> */}
     </div>
   );
 };
