@@ -21,7 +21,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
           {description}
         </p>
         <p className="mt-4 text-left text-base/6 text-neutral-200">
-          +{points} points
+          +{points} XP
         </p>
         <button className="absolute rounded-xl px-6 py-2 border-[.2px] border-sky-400 -right-2 -bottom-5 bg-gradient-to-br from-sky-200 to-sky-500 text-transparent text-base/6 bg-clip-text">
           Start
