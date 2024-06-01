@@ -1,17 +1,17 @@
 "use client";
-import {
-  Users,
-  LayoutDashboard,
-  BarChart3,
-  GlobeLock,
-  BookText,
-  SearchCheck,
-  LaptopMinimal,
-  ShieldCheck,
-} from "lucide-react";
+// import {
+//   Users,
+//   LayoutDashboard,
+//   BarChart3,
+//   GlobeLock,
+//   BookText,
+//   SearchCheck,
+//   LaptopMinimal,
+//   ShieldCheck,
+// } from "lucide-react";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
+// import Link from "next/link";
+// import { motion } from "framer-motion";
 const CollapsableNavbar = () => {
   return (
     <nav className="bg-slate-800  gap-4 flex flex-col justify-start py-6 items-start fixed left-0 top-0 overflow-hidden w-20 hover:w-60 group transition-all duration-300 h-screen z-30">
