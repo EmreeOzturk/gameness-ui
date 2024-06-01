@@ -4,9 +4,8 @@ const Logo = () => {
   return (
     <Link
       href="/"
-      className="flex items-center z-20 justify-center cursor-pointer"
-    >
-      <Image src="/mavi.png" alt="Dats Project" width={300} height={200} />
+      className="flex items-center z-20 justify-center relative w-64  h-14 md:w-80 md:h-16 cursor-pointer">
+      <Image src="/mavi.png" alt="Dats Project" fill />
     </Link>
   );
 };
