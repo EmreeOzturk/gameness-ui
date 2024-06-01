@@ -14,8 +14,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 const CollapsableNavbar = () => {
   return (
-    <nav className="bg-slate-800  gap-4 flex flex-col justify-start py-6 items-start fixed left-0 top-0 overflow-hidden w-20 hover:w-60 group transition-all duration-500 h-screen z-30">
-      <div className="opacity-0 absolute top-6 left-0 right-0 duration-500  group-hover:opacity-100 flex flex-col items-center justify-start pt-6 w-5/6 h-56 rounded-lg bg-slate-800 border mx-auto">
+    <nav className="bg-slate-800  gap-4 flex flex-col justify-start py-6 items-start fixed left-0 top-0 overflow-hidden w-20 hover:w-60 group transition-all duration-300 h-screen z-30">
+      <div className="opacity-0 absolute top-6 left-0 right-0 duration-300  group-hover:opacity-100 flex flex-col items-center justify-start pt-6 w-5/6 h-56 rounded-lg bg-slate-800 border mx-auto">
         <img
           className="w-16 h-16 rounded-full"
           src="https://pagedone.io/asset/uploads/1704275541.png"
@@ -24,7 +24,7 @@ const CollapsableNavbar = () => {
         <p className="text-base font-bold mt-2 text-zinc-300">Emre Ozturk</p>
         <p className="text-xs font-thin text-zinc-300">emreozturk.dev</p>
       </div>
-      <div className="w-full flex flex-col justify-center items-center gap-4 group-hover:mt-64 transition-all duration-1000">
+      {/* <div className="w-full flex flex-col justify-center items-center gap-4 group-hover:mt-64 transition-all duration-500">
         <Link
           href="/"
           className="flex relative justify-start mx-auto items-center gap-3  w-[95%]  rounded-lg h-10 pl-6  hover:bg-slate-900   transition-all"
@@ -42,11 +42,11 @@ const CollapsableNavbar = () => {
           <p className="w-96 hidden absolute left-14 group-hover:flex group-hover:opacity-100 transition-all">
             Stats
           </p>
-        </Link>
+        </Link> */}
         {/* <p className="group-hover:opacity-100 flex mt-6 opacity-0 justify-start items-center gap-3 w-full h-10  pl-6 font-thin ">
         Services
       </p> */}
-        <Link
+        {/* <Link
           href="/"
           className="flex relative justify-start mx-auto items-center gap-3  w-[95%]  rounded-lg h-10 pl-6  hover:bg-slate-900  transition-all"
         >
@@ -90,11 +90,11 @@ const CollapsableNavbar = () => {
           <p className="w-96 hidden absolute left-14 group-hover:flex group-hover:opacity-100 transition-all">
             Blockchain Security
           </p>
-        </Link>
+        </Link> */}
         {/* <p className="group-hover:opacity-100 flex mt-6 opacity-0 justify-start items-center gap-3 w-full h-10  pl-6 font-thin ">
         Others
       </p> */}
-        <Link
+        {/* <Link
           href="/"
           className="flex relative justify-start mx-auto items-center gap-3  w-[95%]  rounded-lg h-10  pl-6 hover:bg-slate-900  transition-all"
         >
@@ -103,7 +103,7 @@ const CollapsableNavbar = () => {
             Referral
           </p>
         </Link>
-      </div>
+      </div> */}
     </nav>
   );
 };
