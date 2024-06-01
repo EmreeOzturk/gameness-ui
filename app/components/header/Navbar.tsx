@@ -5,19 +5,24 @@ const navItems = [
   {
     name: "DATS Project",
     link: "/",
-    iconUri: "/mavi3.svg",
+    // iconUri: "/mavi3.svg",
   },
   {
     name: "Twitter",
     link: "/",
-    icon: <Xicon />,
+    // icon: <Xicon />,
   },
   {
     name: "Discord",
     link: "/",
-    icon: <DiscordIcon />,
+    // icon: <DiscordIcon />,
   },
-];
+] as {
+  name: string;
+  link: string;
+  iconUri?: string;
+  icon?: JSX.Element;
+}[];
 
 const Navbar = () => {
   return (
