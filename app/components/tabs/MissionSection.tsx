@@ -9,7 +9,7 @@ type MissionSectionProps = {
 
 const MissionSection: React.FC<MissionSectionProps> = ({ title, data }) => {
   return (
-    <div className="no-visible-scrollbar flex flex-col overflow-y-auto  mb-6 rounded-xl h-[80%] w-1/2 items-start justify-start">
+    <div className="no-visible-scrollbar flex flex-col   mb-6 rounded-xl h-full w-1/2 bgitems-start justify-start">
       <p className="text-center w-full">{title}</p>
       <div className="gap-4  flex  flex-col p-4 w-full">
         {data?.map((mission, index) => (
