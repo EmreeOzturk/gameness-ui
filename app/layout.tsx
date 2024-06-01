@@ -19,10 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="antialiased no-visible-scrollbar">
       <body className={`${inter.className} relative `}>
-        <div className="max-w-7xl mx-auto">
-          <Header />
-          {children}
-        </div>
+        <div className="max-w-7xl mx-auto">{children}</div>
       </body>
     </html>
   );
