@@ -41,7 +41,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center select-none justify-center gap-8 [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row  flex-wrap items-center h-fit lg:h-fit select-none justify-center gap-8 [perspective:1000px] relative  sm:overflow-visible no-visible-scrollbar max-w-full w-full",
           containerClassName
         )}
       >
@@ -54,7 +54,7 @@ export const Tabs = ({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative border border-sky-950 disabled:border-none  px-12 py-3 rounded-full disabled:bg-gray-800 disabled:text-gray-500/20 dark:bg-zinc-800  dark:hover:bg-zinc-700 dark:hover:text-zinc-100  transition-all duration-300 ease-in-out z-20 text-lg font-semibold",
+              "relative border border-sky-950 disabled:border-none px-3 py-1.5 lg:px-8 lg:py-3 rounded-full disabled:bg-gray-800 disabled:text-gray-500/20 dark:bg-zinc-800  dark:hover:bg-zinc-700 dark:hover:text-zinc-100  transition-all duration-300 ease-in-out z-20 text-lg font-semibold",
               tabClassName,
               active.value === tab.value && "border-sky-700 text-sky-700"
             )}
@@ -74,8 +74,8 @@ export const Tabs = ({
               />
             )}
 
-            <span className="relative flex  gap-4 items-center z-20  ">
-              {tab.disabled ? <Lock size={24} /> : <LockOpen size={24} />}
+            <span className="relative flex text-sm lg:text-base gap-4 items-center z-20  ">
+              {tab.disabled ? <Lock /> : <LockOpen />}
               {tab.title}
             </span>
           </button>
@@ -108,7 +108,7 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className={`relative w-full h-full`}>
+    <div className={`relative  w-full h-full`}>
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
