@@ -9,8 +9,8 @@ const MissionCard: React.FC<MissionCardProps> = ({
   onClick,
 }) => {
   return (
-    <WobbleCard containerClassName="h-48 relative select-none">
-      <div className="">
+    <WobbleCard containerClassName="lg:h-48  h-full relative select-none">
+      <div >
         {/* <div className="w-14 h-14 rounded-md bg-gray-900 flex justify-center items-center">
           icon
         </div> */}
