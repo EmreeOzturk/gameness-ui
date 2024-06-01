@@ -5,14 +5,14 @@ import { TextGenerateEffect } from "../ui/text-generate-effect";
 const words = ` Claim, compete, conquer your DATS Project’s XPs!`;
 const HeroSection = () => {
   return (
-    <div className="flex w-full flex-col-reverse  gap-8  lg:pt-0 overflow-hidden lg:flex-row items-center justify-center h-screen ">
+    <div className="flex w-full flex-col-reverse -mt-20 md:mt-0 gap-8  md:pt-0 overflow-hidden md:flex-row items-center justify-center h-screen ">
       <div className=" z-20  h-full lg:w-1/2 items-start  justify-center flex flex-col gap-4">
         <div className="flex flex-col items-center justify-center gap-4 w-full">
           <TextGenerateEffect
             className="text-2xl w-96 lg:text-xl text-center  font-normal text-slate-300"
             words={words}
           />
-          <div className="bg-gradient-to-br text-center from-cyan-800 to-zinc-300 text-clip bg-clip-text text-transparent text-6xl my-2 lg:text-7xl font-bold">
+          <div className="bg-gradient-to-br text-center from-cyan-800 to-zinc-300 text-clip bg-clip-text text-transparent text-4xl my-2 lg:text-7xl font-bold">
             <h1>Community Campaign</h1>
           </div>
         </div>
