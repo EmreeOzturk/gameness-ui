@@ -79,7 +79,7 @@ const MissionsPage = () => {
           <div className="bg-gradient-to-br text-center from-cyan-800 to-zinc-300 text-clip bg-clip-text text-transparent text-5xl lg:text-6xl font-bold">
             <h1 className="tracking-wide">Total XP: 1000</h1>
           </div>
-          <div className="flex items-center px-16 py-8 w-full justify-between ">
+          <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 items-center px-16 py-8 w-full justify-between ">
             <InfoCard
               title={"MISSIONS COMPLETED"}
               data={10}
@@ -104,16 +104,16 @@ const MissionsPage = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center  mb-6 gap-4 w-full text-zinc-500">
+        <div className="flex flex-col items-center justify-center  mb-6 gap-4 w-full text-center text-zinc-500">
           <p>Invite friends using Referral Code for bonus points.</p>
           <button className="bg-sky-500 hover:scale-105 transition-all  text-zinc-300 text-base font-bold px-6 py-3 rounded-full flex items-center justify-center gap-2">
             DATS Project
             <Copy size={24} />
           </button>
         </div>
-        <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-sky-600 to-transparent" />
+        <div className="lg:w-full w-4/5 mx-auto lg:mb-10 h-1.5 bg-gradient-to-r from-transparent via-sky-600 to-transparent" />
       </div>
-      <div className="h-[50rem] z-10  [perspective:1000px] px-8 mb-20 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
+      <div className="h-[50rem] z-10  [perspective:1000px] px-4 lg:px-8 mb-20 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
         <Tabs tabs={tabs} />
       </div>
       {/* <BackgroundBeams /> */}
