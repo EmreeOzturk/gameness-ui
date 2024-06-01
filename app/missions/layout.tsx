@@ -13,10 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <div className="flex md:hidden bg-slate-200 z-40">
+      <div className="flex md:hidden bg-slate-200 z-30">
         {/* <Header /> */}
       </div>
-      {/* <CollapsableNavbar /> */}
+      <CollapsableNavbar />
       {children}
     </>
   );
