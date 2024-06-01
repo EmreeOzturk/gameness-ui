@@ -12,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <> 
-      <CollapsableNavbar />
+      {/* <CollapsableNavbar /> */}
       {children}
     </>
   );
