@@ -1,9 +1,8 @@
 "use client";
-import { BackgroundBeams } from "../components/ui/background-beams";
 import InfoCard from "../components/missions/InfoCard";
 import { Tabs } from "../components/ui/tabs";
 import Epoch from "../components/tabs/Epoch";
-import { CircleCheck, Users, Lollipop, Gem } from "lucide-react";
+import { CircleCheck, Users, Lollipop, Gem, Copy } from "lucide-react";
 import {
   week1DailyTasks,
   week1WeeklyTasks,
@@ -74,13 +73,11 @@ const tabs = [
 
 const MissionsPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full pt-32">
-      <div className=" w-full lg:w-full h-full items-start lg:mr-auto justify-center flex flex-col gap-4">
+    <div className="flex flex-col items-start  justify-start w-full pt-36">
+      <div className=" w-full lg:w-full h-fit items-start lg:mr-auto justify-start flex flex-col gap-4 mb-12">
         <div className="flex flex-col items-center justify-center gap-4 w-full">
-          <div className="bg-gradient-to-br text-center from-cyan-800 to-zinc-300 text-clip bg-clip-text text-transparent text-5xl lg:text-7xl font-bold">
-            <h1 className="tracking-widest">
-              DATS <br /> POINTS
-            </h1>
+          <div className="bg-gradient-to-br text-center from-cyan-800 to-zinc-300 text-clip bg-clip-text text-transparent text-5xl lg:text-6xl font-bold">
+            <h1 className="tracking-wide">Total XP: 1000</h1>
           </div>
           <div className="flex items-center px-16 py-8 w-full justify-between ">
             <InfoCard
@@ -107,12 +104,19 @@ const MissionsPage = () => {
             />
           </div>
         </div>
+        <div className="flex flex-col items-center justify-center  mb-6 gap-4 w-full text-zinc-500">
+          <p>Invite friends using Referral Code for bonus points.</p>
+          <button className="bg-sky-500 hover:scale-105 transition-all  text-zinc-300 text-base font-bold px-6 py-3 rounded-full flex items-center justify-center gap-2">
+            DATS Project
+            <Copy size={24} />
+          </button>
+        </div>
         <div className="w-full mb-10 h-1.5 bg-gradient-to-r from-transparent via-sky-600 to-transparent" />
       </div>
-      <div className="h-[40rem] z-10  [perspective:1000px] px-8 mb-20 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
+      <div className="h-[50rem] z-10  [perspective:1000px] px-8 mb-20 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
         <Tabs tabs={tabs} />
       </div>
-      <BackgroundBeams />
+      {/* <BackgroundBeams /> */}
     </div>
   );
 };
