@@ -5,8 +5,8 @@ import { TextGenerateEffect } from "../ui/text-generate-effect";
 const words = ` Claim, Compete, Conquer Your DATS Project Airdrop Awaits!`;
 const HeroSection = () => {
   return (
-    <div className="flex w-full flex-col  lg:flex-row items-center justify-center h-screen ">
-      <div className=" w-full z-20  lg:w-1/2 h-full items-start lg:mr-auto justify-center flex flex-col gap-4">
+    <div className="flex w-full flex-col gap-8 lg:flex-row items-center justify-center h-screen ">
+      <div className=" z-20  h-full lg:w-1/2 items-start  justify-center flex flex-col gap-4">
         <div className="flex flex-col items-center justify-center gap-4 w-full">
           <TextGenerateEffect
             className="text-2xl w-96 lg:text-3xl text-center  font-normal text-slate-300"
@@ -30,11 +30,11 @@ const HeroSection = () => {
           </div>
         </Link>
       </div>
-      <div className="lg:absolute relative z-10 bg-clip-text right-0 lg:top-14 bottom-0 w-2/3 lg:w-1/2 h-full lg:h-4/5 ">
+      <div className="relative z-10 w-full   lg:w-1/2 h-full  ">
         <Image
           src="/beyaz2.png"
           alt="Hero"
-          className="object-contain bg-transparent "
+          className="object-contain bg-transparent  h-full"
           fill
         />
       </div>
