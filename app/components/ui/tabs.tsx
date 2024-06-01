@@ -54,9 +54,9 @@ export const Tabs = ({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative border border-sky-950 disabled:border-none  px-12 py-3 rounded-full disabled:bg-gray-800 disabled:text-gray-500/20 dark:bg-zinc-800  dark:hover:bg-zinc-700 dark:hover:text-zinc-100  hover:text-gray-100 transition-all duration-300 ease-in-out z-20 text-lg font-semibold",
+              "relative border border-sky-950 disabled:border-none  px-12 py-3 rounded-full disabled:bg-gray-800 disabled:text-gray-500/20 dark:bg-zinc-800  dark:hover:bg-zinc-700 dark:hover:text-zinc-100  transition-all duration-300 ease-in-out z-20 text-lg font-semibold",
               tabClassName,
-              active.value === tab.value && "border-sky-700 text-zinc-100"
+              active.value === tab.value && "border-sky-700 text-sky-700"
             )}
             style={{
               transformStyle: "preserve-3d",
@@ -74,7 +74,7 @@ export const Tabs = ({
               />
             )}
 
-            <span className="relative flex  gap-4 items-center z-20 text-zinc-300 dark:text-white">
+            <span className="relative flex  gap-4 items-center z-20  ">
               {tab.disabled ? <Lock size={24} /> : <LockOpen size={24} />}
               {tab.title}
             </span>
@@ -96,6 +96,7 @@ export const FadeInDiv = ({
   className,
   tabs,
   hovering,
+  active,
 }: {
   className?: string;
   key?: string;
@@ -107,21 +108,27 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className="relative w-full h-full">
+    <div className={`relative w-full h-full`}>
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
           layoutId={tab.value}
           style={{
             scale: 1 - idx * 0.1,
-            top: hovering ? idx * -45 : -30,
+            top: hovering ? idx * -55 : -30,
             zIndex: -idx,
             opacity: idx < 3 ? 1 - idx * 0.1 : 0,
+            // height: isActive(tab) ? "100%" : "1000px",
           }}
           animate={{
             y: isActive(tab) ? [0, 20, 0] : 0,
           }}
-          className={cn("w-full h-full absolute top-0 left-0", className)}
+          className={cn(
+            "w-full absolute h-full top-0 left-0",
+            tab.value == "epoch2" ? "h-[240vh]" : "h-[200vh]",
+            isActive(tab) ? "h-fit" : "h-[50rem]",
+            className
+          )}
         >
           {tab.content}
         </motion.div>
