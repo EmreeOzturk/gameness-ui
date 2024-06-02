@@ -13,9 +13,9 @@ const InfoCard: React.FC<InfoCardProps> = ({ title, data, icon, reverse }) => {
       <div className="select-none tracking-wide">
         <Button
           reverse={reverse}
-          className="text-zinc-300 px-8 py-4 text-base lg:text-xl flex flex-col w-64 "
+          className="text-zinc-300 px-6 py-4 text-base lg:text-xl flex flex-col w-64 "
         >
-          <div className="w-full">
+          <div className="w-full ">
             <div className="flex justify-center mb-2">{icon && icon}</div>
             <h3>{title}</h3>
           </div>
