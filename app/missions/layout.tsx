@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CollapsableNavbar from "../components/navbar";
 import Header from "../components/header";
+
 export const metadata: Metadata = {
   title: "DATS Project",
   description:
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <>
       <div className="flex md:hidden bg-slate-200 z-30">
-        {/* <Header /> */}
+        <Header />
       </div>
       <CollapsableNavbar />
       {children}
