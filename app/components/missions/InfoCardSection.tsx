@@ -6,12 +6,12 @@ const InfoCardSection = () => {
   return (
     <div className="flex flex-wrap   lg:flex-row gap-3 md:gap-4 items-center px-16 py-8 w-full justify-center ">
       <InfoCard
-        title={"Assigned Resource Count"}
+        title={"Assigned Resource"}
         data={10}
         icon={<CircleCheck size={24} />}
       />
       <InfoCard
-        title={"Assigned CPU Count"}
+        title={"Assigned CPU"}
         data={100}
         icon={<Users size={24} />}
       />
