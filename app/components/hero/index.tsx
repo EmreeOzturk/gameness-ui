@@ -2,6 +2,7 @@ import Image from "next/image";
 import Xicon from "../icons/Xicon";
 import Link from "next/link";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
+import signWithX from "@/app/action";
 const words = ` Claim, compete, conquer your DATS Project’s XPs!`;
 const HeroSection = () => {
   return (
@@ -17,17 +18,16 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="w-4/5 lg:w-full mx-auto h-1.5 bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
-        <Link
-          href="/missions"
-          className="px-4 py-2 rounded-full relative mt-4 lg:mt-10 bg-transparent mx-auto text-zinc-300 text-lg font-bold hover:shadow-md w-1/2 hover:shadow-white/[0.4] transition duration-200 border border-slate-600"
-        >
+        <div className="px-4 py-2 rounded-full relative mt-4 lg:mt-6 bg-transparent mx-auto text-zinc-300 text-lg font-bold hover:shadow-md w-1/2 hover:shadow-white/[0.4] transition duration-200 border border-slate-600">
           <div className="absolute inset-x-0 h-px w-1/2 mx-auto -top-px shadow-xl  bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
           <div className="relative  flex justify-center items-center gap-2 z-20">
-            <p className="flex items-center gap-1">
-              Sign in with <Xicon />
-            </p>
+            <form action={signWithX}>
+              <button className="flex items-center gap-1" type="submit">
+                Sign in with <Xicon />
+              </button>
+            </form>
           </div>
-        </Link>
+        </div>
       </div>
       <div className="relative z-10 w-full hidden lg:flex  lg:w-1/2 h-full  ">
         <Image
