@@ -4,6 +4,7 @@ import InfoCardSection from "../components/missions/InfoCardSection";
 import RefCodeSection from "../components/missions/RefCodeSection";
 import MobileMenu from "../components/missions/MobileMenu";
 import Epoch from "../components/tabs/Epoch";
+
 import {
   week1DailyTasks,
   week1WeeklyTasks,
@@ -70,7 +71,7 @@ const tabs = [
     disabled: true,
   },
 ];
-const MissionsPage = () => {
+const MissionsPage = async () => {
   return (
     <>
       <MobileMenu />
