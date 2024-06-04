@@ -1,6 +1,5 @@
 import NextAuth, { type DefaultSession } from "next-auth";
-import TwitterProvider from "next-auth/providers/twitter";
-
+import Twitter from "next-auth/providers/twitter";
 declare module "next-auth" {
   interface Session {
     user: {
@@ -14,12 +13,7 @@ declare module "next-auth" {
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   debug: true,
-  providers: [
-    TwitterProvider({
-      clientId: process.env.AUTH_TWITTER_ID!,
-      clientSecret: process.env.AUTH_TWITTER_SECRET!,
-    }),
-  ],
+  providers: [Twitter],
   callbacks: {
     jwt({ token, account }) {
       if (account) {
