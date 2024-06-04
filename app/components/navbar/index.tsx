@@ -1,4 +1,3 @@
-"use client";
 // import {
 //   Users,
 //   LayoutDashboard,
@@ -12,17 +11,29 @@
 
 // import Link from "next/link";
 // import { motion } from "framer-motion";
-const CollapsableNavbar = () => {
+import { auth } from "@/auth";
+import { Session } from "next-auth";
+import Image from "next/image";
+const CollapsableNavbar = async () => {
+  const session = (await auth()) as Session;
+  console.log(session);
+  // console.log(session?.user?.twitterId);
   return (
     <nav className="bg-slate-800 hidden gap-4 lg:flex flex-col justify-start py-6 items-start fixed left-0 top-0 overflow-hidden w-12 hover:w-60 group transition-all duration-300 h-screen z-30">
       <div className="opacity-0 absolute top-6 left-0 right-0 duration-300  group-hover:opacity-100 flex flex-col items-center justify-start pt-6 w-5/6 h-56 rounded-lg bg-slate-800 border mx-auto">
-        <img
-          className="w-16 h-16 rounded-full"
-          src="https://pagedone.io/asset/uploads/1704275541.png"
-          alt="Fully large avatar"
+        <Image
+          className="rounded-full"
+          src={session?.user?.image as string}
+          alt="User Avatar"
+          width={64}
+          height={64}
         />
-        <p className="text-base font-bold mt-2 text-zinc-300">Emre Ozturk</p>
-        <p className="text-xs font-thin text-zinc-300">emreozturk.dev</p>
+        <p className="text-base font-bold mt-2 text-zinc-300">
+          {session?.user?.name}
+        </p>
+        <p className="text-xs font-thin text-zinc-300">
+          {session?.user?.twitterId}
+        </p>
       </div>
       {/* <div className="w-full flex flex-col justify-center items-center gap-4 group-hover:mt-64 transition-all duration-500">
         <Link
@@ -43,10 +54,10 @@ const CollapsableNavbar = () => {
             Stats
           </p>
         </Link> */}
-        {/* <p className="group-hover:opacity-100 flex mt-6 opacity-0 justify-start items-center gap-3 w-full h-10  pl-6 font-thin ">
+      {/* <p className="group-hover:opacity-100 flex mt-6 opacity-0 justify-start items-center gap-3 w-full h-10  pl-6 font-thin ">
         Services
       </p> */}
-        {/* <Link
+      {/* <Link
           href="/"
           className="flex relative justify-start mx-auto items-center gap-3  w-[95%]  rounded-lg h-10 pl-6  hover:bg-slate-900  transition-all"
         >
@@ -91,10 +102,10 @@ const CollapsableNavbar = () => {
             Blockchain Security
           </p>
         </Link> */}
-        {/* <p className="group-hover:opacity-100 flex mt-6 opacity-0 justify-start items-center gap-3 w-full h-10  pl-6 font-thin ">
+      {/* <p className="group-hover:opacity-100 flex mt-6 opacity-0 justify-start items-center gap-3 w-full h-10  pl-6 font-thin ">
         Others
       </p> */}
-        {/* <Link
+      {/* <Link
           href="/"
           className="flex relative justify-start mx-auto items-center gap-3  w-[95%]  rounded-lg h-10  pl-6 hover:bg-slate-900  transition-all"
         >
