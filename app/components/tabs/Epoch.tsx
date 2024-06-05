@@ -1,12 +1,12 @@
-import { MissionCardProps } from "@/app/data/missions";
+import { TaskSchema } from "@/app/data/missions";
 import MissionSection from "./MissionSection";
 
 type EpochTabProps = {
   title: string;
   description: string;
   points: number;
-  dailyTasks: MissionCardProps[];
-  weeklyTasks: MissionCardProps[];
+  dailyTasks: TaskSchema[];
+  weeklyTasks: TaskSchema[];
 };
 
 const Epoch: React.FC<EpochTabProps> = ({
