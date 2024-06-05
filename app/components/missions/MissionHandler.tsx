@@ -38,7 +38,7 @@ const MissionHandler: React.FC<MissinHandlerProps> = ({
         required
         id={type}
         name={type}
-        type={type === ""}
+        type={"text"}
       />
       <button
         type="submit"
