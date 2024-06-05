@@ -23,7 +23,7 @@ const CollapsableNavbar = async () => {
       <div className="opacity-0 absolute top-6 left-0 right-0 duration-300  group-hover:opacity-100 flex flex-col items-center justify-start pt-6 w-5/6 h-56 rounded-lg bg-slate-800 border mx-auto">
         <Image
           className="rounded-full"
-          src={session?.user?.image as string}
+          src={session?.user?.profile_image_url as string}
           alt="User Avatar"
           width={64}
           height={64}
@@ -32,7 +32,7 @@ const CollapsableNavbar = async () => {
           {session?.user?.name}
         </p>
         <p className="text-xs font-thin text-zinc-300">
-          {session?.user?.twitterId}
+          {session?.user?.twitter}
         </p>
       </div>
       {/* <div className="w-full flex flex-col justify-center items-center gap-4 group-hover:mt-64 transition-all duration-500">
