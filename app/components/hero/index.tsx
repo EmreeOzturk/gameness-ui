@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Xicon from "../icons/Xicon";
-import Link from "next/link";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import signWithX from "@/app/action";
 const words = ` Claim, compete, conquer your DATS Project’s XPs!`;
