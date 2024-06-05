@@ -4,7 +4,7 @@ import InfoCardSection from "../components/missions/InfoCardSection";
 import RefCodeSection from "../components/missions/RefCodeSection";
 import MobileMenu from "../components/missions/MobileMenu";
 import Epoch from "../components/tabs/Epoch";
-
+import { auth } from "@/auth";
 import {
   week1DailyTasks,
   week1WeeklyTasks,
@@ -15,6 +15,7 @@ import {
   week4DailyTasks,
   week4WeeklyTasks,
 } from "../data/missions";
+import { redirect } from "next/navigation";
 const tabs = [
   {
     title: "1. Epoch",
@@ -72,6 +73,8 @@ const tabs = [
   },
 ];
 const MissionsPage = async () => {
+  const session = (await auth()) as any;
+  if (!session) return redirect("/");
   return (
     <>
       <MobileMenu />
@@ -89,7 +92,7 @@ const MissionsPage = async () => {
         <div className="h-[50rem] z-10  [perspective:1000px] px-4 lg:px-8 mb-20 relative flex flex-col max-w-7xl mx-auto w-full  items-start justify-start ">
           <Tabs tabs={tabs} />
         </div>
-        <BackgroundBeams />
+        {/* <BackgroundBeams /> */}
       </div>
     </>
   );
