@@ -5,6 +5,18 @@ import { Copy } from "lucide-react";
 // import { v4 as uuidv4 } from "uuid";
 import { auth } from "@/auth";
 import { Session } from "next-auth";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 const RefCodeSection = async () => {
   // const [showCaptcha, setShowCaptcha] = useState(false);
   // const [referenceCode, setReferenceCode] = useState("");
@@ -38,10 +50,41 @@ const RefCodeSection = async () => {
           <Copy size={24} />
         </button>
       )} */}
-      <button className="bg-sky-500 z-20 hover:scale-105 transition-all  text-zinc-300 text-base font-bold px-6 py-3 rounded-full flex items-center justify-center gap-2">
+      {/* <button className="bg-sky-500 z-20 hover:scale-105 transition-all  text-zinc-300 text-base font-bold px-6 py-3 rounded-full flex items-center justify-center gap-2">
         {session?.user?.refId}
         <Copy size={24} />
-      </button>
+      </button> */}
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline">
+            DATS Project
+            <Copy size={24} />
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Enter referral code</DialogTitle>
+            <DialogDescription>
+              So i cant give spoilers. Referance is important.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              {/* <Label htmlFor="name" className="text-right">
+                Name
+              </Label> */}
+              <Input
+                id="name"
+                placeholder="Enter referral code..."
+                className="col-span-3"
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       {/* {showCaptcha && (
         <>
           <ReCAPTCHA
