@@ -19,9 +19,7 @@ export default function RootLayout({
   return (
     // <Web3ModalProvider initialState={initialState}>
     <>
-      <div className="flex md:hidden bg-slate-200 z-30">
-        {/* <Header /> */}
-      </div>
+      <div className="flex md:hidden bg-slate-200 z-30">{/* <Header /> */}</div>
       <CollapsableNavbar />
       {children}
     </>
