@@ -23,8 +23,6 @@ const week1WeeklyTasks: TaskSchema[] = [
     mission_type: "joinTelegram",
     mission_description: "Join our Telegram channel to stay updated.",
     mission_point: 30,
-    mission_link: "",
-    mobile_mission_link: "",
   },
   {
     _id: "2",
@@ -33,8 +31,6 @@ const week1WeeklyTasks: TaskSchema[] = [
     mission_description:
       "Join our Discord channel to engage with the community.",
     mission_point: 30,
-    mission_link: "",
-    mobile_mission_link: "",
   },
   {
     _id: "3",
@@ -70,8 +66,6 @@ const week1WeeklyTasks: TaskSchema[] = [
     mission_type: "wallet",
     mission_description: "Mint an Aegis NFT to add to your collection.",
     mission_point: 50,
-    mission_link: "",
-    mobile_mission_link: "",
   },
 ];
 
@@ -82,8 +76,6 @@ const week1DailyTasks: TaskSchema[] = [
     mission_type: "dailyCheck",
     mission_description: "Check in daily to earn points.",
     mission_point: 5,
-    mission_link: "",
-    mobile_mission_link: "",
   },
   {
     _id: "8",
@@ -92,8 +84,8 @@ const week1DailyTasks: TaskSchema[] = [
     mission_description:
       "Share a tweet about the DATS project using the #depin tag.",
     mission_point: 20,
-    mission_link: "",
-    mobile_mission_link: "",
+    mission_link: "https://twitter.com/intent/post?text=%23depin",
+    mobile_mission_link: "https://twitter.com/intent/post?text=%23depin",
   },
   {
     _id: "9",
@@ -101,8 +93,10 @@ const week1DailyTasks: TaskSchema[] = [
     mission_type: "twitter",
     mission_description: "Like, retweet, and comment on our tweets.",
     mission_point: 10,
-    mission_link: "",
-    mobile_mission_link: "",
+    mission_link:
+      "https://twitter.com/intent/like?tweet_id=1797716610691801164",
+    mobile_mission_link:
+      "https://twitter.com/intent/like?tweet_id=1797716610691801164",
   },
   {
     _id: "10",
@@ -111,8 +105,6 @@ const week1DailyTasks: TaskSchema[] = [
     mission_description:
       "Post a 'good morning' or 'good night' message on Discord.",
     mission_point: 5,
-    mission_link: "",
-    mobile_mission_link: "",
   },
 ];
 
