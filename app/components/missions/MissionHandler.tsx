@@ -11,8 +11,8 @@ type MissinHandlerProps = {
 import { useInformation } from "@/app/hooks/useInformation";
 import { usePointUser } from "@/app/hooks/usePointUser";
 import { useState } from "react";
-import ConnectButton from "../ConnectButton";
-import { useAccount } from "wagmi";
+// import ConnectButton from "../ConnectButton";
+// import { useAccount } from "wagmi";
 const MissionHandler: React.FC<MissinHandlerProps> = ({
   userId,
   _id,
@@ -21,7 +21,7 @@ const MissionHandler: React.FC<MissinHandlerProps> = ({
 }) => {
   const { loading: informationLoading, trigerInformation } = useInformation();
   const { loading, triggerPointUser } = usePointUser();
-  const { address: account, isConnected } = useAccount();
+  // const { address: account, isConnected } = useAccount();
 
   const [payload, setPayload] = useState<string>("");
   const handlePayload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,15 +53,15 @@ const MissionHandler: React.FC<MissinHandlerProps> = ({
   if (type === "wallet") {
     return (
       <div className="py-2 space-y-4">
-        <ConnectButton />
+        {/* <ConnectButton /> */}
         <button
           onClick={() => {
-            trigerInformation(userId, _id, account as string);
+            // trigerInformation(userId, _id, account as string);
           }}
-          className={`text-center text-white rounded-full py-3 w-full font-bold ${
-            isConnected ? "bg-primary" : "bg-white/50 cursor-not-allowed"
-          }`}
-          disabled={!isConnected}
+          // className={`text-center text-white rounded-full py-3 w-full font-bold ${
+            // isConnected ? "bg-primary" : "bg-white/50 cursor-not-allowed"
+          // }`}
+          // disabled={!isConnected}
         >
           <span>Done the task</span>
         </button>
