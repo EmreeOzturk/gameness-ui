@@ -5,7 +5,6 @@ import RefCodeSection from "../components/missions/RefCodeSection";
 import MobileMenu from "../components/missions/MobileMenu";
 import Epoch from "../components/tabs/Epoch";
 import { auth } from "@/auth";
-import clientPromise from "../lib/db";
 import {
   week1DailyTasks,
   week1WeeklyTasks,
@@ -76,18 +75,7 @@ const tabs = [
 const MissionsPage = async () => {
   const session = (await auth()) as any;
   if (!session) return redirect("/");
-  const client = await clientPromise;
-  const db = client.db("dats_task");
-  const collection = db.collection("task");
-  const fetchData = async () => {
-    try {
-      const res = await collection.find({}).toArray();
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  fetchData();
+  
   return (
     <>
       <MobileMenu />
