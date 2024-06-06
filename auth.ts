@@ -48,7 +48,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     Twitter({
       clientId: process.env.AUTH_TWITTER_ID,
       clientSecret: process.env.AUTH_TWITTER_SECRET,
-      profile(profile: TwitterProfile) {
+      profile(profile: TwitterProfile | any) {
         return {
           ...profile.data,
           refId: profile?.data?.username,
