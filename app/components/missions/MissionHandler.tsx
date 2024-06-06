@@ -9,7 +9,10 @@ type MissinHandlerProps = {
 };
 
 import { useInformation } from "@/app/hooks/useInformation";
+import { usePointUser } from "@/app/hooks/usePointUser";
 import { useState } from "react";
+import ConnectButton from "../ConnectButton";
+import { useAccount } from "wagmi";
 const MissionHandler: React.FC<MissinHandlerProps> = ({
   userId,
   _id,
@@ -17,11 +20,54 @@ const MissionHandler: React.FC<MissinHandlerProps> = ({
   type,
 }) => {
   const { loading: informationLoading, trigerInformation } = useInformation();
+  const { loading, triggerPointUser } = usePointUser();
+  const { address: account, isConnected } = useAccount();
+
   const [payload, setPayload] = useState<string>("");
   const handlePayload = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPayload(e.target.value);
   };
 
+  if (type === "dailyCheck") {
+    return (
+      <div className="py-2 space-y-4">
+        <button
+          onClick={() => {
+            {
+              !loading ? triggerPointUser(userId, _id) : null;
+            }
+          }}
+          className={`text-center text-white rounded-full py-3 w-full font-bold ${
+            !informationLoading
+              ? "bg-primary"
+              : "cursor-not-allowed bg-white/50"
+          }`}
+          disabled={informationLoading}
+        >
+          <span>I am here!</span>
+        </button>
+      </div>
+    );
+  }
+
+  if (type === "wallet") {
+    return (
+      <div className="py-2 space-y-4">
+        <ConnectButton />
+        <button
+          onClick={() => {
+            trigerInformation(userId, _id, account as string);
+          }}
+          className={`text-center text-white rounded-full py-3 w-full font-bold ${
+            isConnected ? "bg-primary" : "bg-white/50 cursor-not-allowed"
+          }`}
+          disabled={!isConnected}
+        >
+          <span>Done the task</span>
+        </button>
+      </div>
+    );
+  }
   return (
     <form
       className="py-2 space-y-4"
