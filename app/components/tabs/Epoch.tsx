@@ -1,5 +1,6 @@
 import { TaskSchema } from "@/app/data/missions";
 import MissionSection from "./MissionSection";
+import clientPromise from "@/app/lib/db";
 
 type EpochTabProps = {
   title: string;
@@ -9,13 +10,26 @@ type EpochTabProps = {
   weeklyTasks: TaskSchema[];
 };
 
-const Epoch: React.FC<EpochTabProps> = ({
+const Epoch: React.FC<EpochTabProps> = async ({
   title,
   description,
   points,
   weeklyTasks,
   dailyTasks,
 }) => {
+  const client = await clientPromise;
+  const db = client.db("dats_task");
+  const collection = db.collection("task");
+  const fetchData = async () => {
+    try {
+      const res = await collection.find({}).toArray();
+      console.log(res);
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const tasks = await fetchData();
   return (
     <div className="w-full select-none text-zinc-300 overflow-hidden relative h-full rounded-2xl p-4 lg:p-10  font-bold  bg-gradient-to-t from-slate-950 via-slate-900 to-[#0282C5]">
       <p className="text-3xl lg:text-4xl">{title}</p>
