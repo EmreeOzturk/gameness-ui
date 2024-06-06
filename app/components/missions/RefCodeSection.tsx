@@ -3,8 +3,8 @@ import { Copy } from "lucide-react";
 // import { useState } from "react";
 // import ReCAPTCHA from "react-google-recaptcha";
 // import { v4 as uuidv4 } from "uuid";
-import { auth } from "@/auth";
-import { Session } from "next-auth";
+// import { auth } from "@/auth";
+// import { Session } from "next-auth";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,8 +15,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+// import { Input } from "@/components/ui/input";
+// import { Label } from "@/components/ui/label";
 const RefCodeSection = async () => {
   // const [showCaptcha, setShowCaptcha] = useState(false);
   // const [referenceCode, setReferenceCode] = useState("");
@@ -36,7 +36,7 @@ const RefCodeSection = async () => {
   //   }
   // };
 
-  const session = (await auth()) as Session;
+  // const session = (await auth()) as Session;
 
   return (
     <div className="flex flex-col items-center justify-center  mb-6 gap-4 w-full text-center text-zinc-500">
@@ -56,33 +56,32 @@ const RefCodeSection = async () => {
       </button> */}
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline">
+          <Button className="gap-2" variant="ghost">
             DATS Project
             <Copy size={24} />
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="border-none shadow-2xl shadow-blue-950 ">
           <DialogHeader>
-            <DialogTitle>Enter referral code</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-center mb-4 text-2xl">
+              Enter referral code
+            </DialogTitle>
+            <div className="w-4/5 lg:w-full mx-auto  h-1.5 bg-gradient-to-r  from-transparent via-sky-500 to-transparent" />
+            <DialogDescription className="text-center pt-4 text-base">
               So i cant give spoilers. Referance is important.
             </DialogDescription>
           </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              {/* <Label htmlFor="name" className="text-right">
-                Name
-              </Label> */}
-              <Input
-                id="name"
-                placeholder="Enter referral code..."
-                className="col-span-3"
-              />
-            </div>
-          </div>
-          <DialogFooter>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter>
+          <input
+            className="no-zoom w-full px-4 py-2 rounded-lg border border-white/10 focus:outline-none focus:border-white/30 bg-white/10 text-white/90"
+            placeholder="Enter referral code..."
+            required
+            type={"text"}
+          />
+          <button
+            className={`text-center text-white rounded-full py-3 w-full font-bold bg-primary `}
+          >
+            I am here!
+          </button>
         </DialogContent>
       </Dialog>
       {/* {showCaptcha && (
