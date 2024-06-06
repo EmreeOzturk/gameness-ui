@@ -4,7 +4,7 @@ import Header from "./components/header";
 
 export default function Home() {
   return (
-    <main className="flex select-none flex-col items-center overflow-hidden justify-center">
+    <main className="flex select-none flex-col items-center max-h-screen overflow-hidden justify-center">
       <div className="pt-8  z-40">
         <Header />
       </div>
