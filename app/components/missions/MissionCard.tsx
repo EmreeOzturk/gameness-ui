@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import MissionHandler from "./MissionHandler";
 import MissionLink from "./MissionLink";
+import Link from "next/link";
 type MissionCardProps = {
   isDone?: boolean;
   userId: string;
@@ -48,7 +49,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
             +{mission_point} XP
           </p>
           <button
-            disabled={isDone}
+            // disabled={isDone}
             onClick={() => {
               setOpen(true);
             }}
@@ -69,6 +70,49 @@ const MissionCard: React.FC<MissionCardProps> = ({
               {mission_description}
             </DialogDescription>
           </DialogHeader>
+          {mission_type === "joinTelegram" && (
+            <>
+              <DialogDescription >
+                1. Join the{" "}
+                <Link href="/" className="text-sky-500 cursor-pointer">
+                  DATS Project
+                </Link>{" "}
+                Telegram group then come back to mission page.
+              </DialogDescription>
+              <DialogDescription >
+                2. Ask new mission page code from{" "}
+                <Link href="/" className="text-sky-500 cursor-pointer">
+                  @DATSProjectBot
+                </Link>
+              </DialogDescription>
+              <DialogDescription >
+                3. Fill the input with code and done the mission.
+              </DialogDescription>
+            </>
+          )}
+          {mission_type === "joinDiscord" && (
+            <>
+              <DialogDescription >
+                1. Join the{" "}
+                <Link href="/" className="text-sky-500 cursor-pointer">
+                  DATS Project
+                </Link>{" "}
+                Discord Server.
+              </DialogDescription>
+              <DialogDescription >
+                2. Request the mission page code from the{" "}
+                <span className="text-sky-500">#code-request</span> chat on
+                Discord by clicking the{" "}
+                <span className="text-sky-500">
+                  &quot;Get your mission code ⚡&quot;{" "}
+                </span>
+                button.
+              </DialogDescription>
+              <DialogDescription >
+                3. Fill the input with code and done the mission.
+              </DialogDescription>
+            </>
+          )}
           {mission_link ? (
             <MissionLink
               _id={_id}
