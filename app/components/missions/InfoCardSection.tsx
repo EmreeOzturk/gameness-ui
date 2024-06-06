@@ -1,6 +1,6 @@
 import React from "react";
 import InfoCard from "./InfoCard";
-import { CircleCheck, Gem, Lollipop, Users } from "lucide-react";
+import { Calculator, Gem, Router, Users } from "lucide-react";
 
 const InfoCardSection = () => {
   return (
@@ -8,23 +8,19 @@ const InfoCardSection = () => {
       <InfoCard
         title={"Assigned Resource"}
         data={10}
-        icon={<CircleCheck size={24} />}
+        icon={<Calculator size={24} />}
       />
-      <InfoCard
-        title={"Assigned CPU"}
-        data={100}
-        icon={<Users size={24} />}
-      />
+      <InfoCard title={"Assigned CPU"} data={100} icon={<Gem size={24} />} />
       <InfoCard
         title={"Assigned Bandwidth"}
         data={20}
-        icon={<Lollipop size={24} />}
+        icon={<Router size={24} />}
         reverse
       />
       <InfoCard
         title={"Total Refferals"}
         data={4}
-        icon={<Gem size={24} />}
+        icon={<Users size={24} />}
         reverse
       />
     </div>
