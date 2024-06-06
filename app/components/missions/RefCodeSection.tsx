@@ -78,7 +78,7 @@ const RefCodeSection = async () => {
             type={"text"}
           />
           <button
-            className={`text-center text-white rounded-full py-3 w-full font-bold bg-primary `}
+            className={`text-center text-white shadow-sm shadow-sky-900 rounded-full py-3 w-full font-bold bg-primary `}
           >
             I am here!
           </button>
