@@ -14,6 +14,7 @@ export type TaskSchema = {
   mission_link?: string;
   mobile_mission_link?: string;
   mission_joiners?: string[];
+  weekly?: boolean;
 };
 
 const week1WeeklyTasks: TaskSchema[] = [
@@ -124,8 +125,10 @@ const week2WeeklyTasks: TaskSchema[] = [
     mission_type: "twitter",
     mission_description: "Quote tweet DATS & VirusTotal.",
     mission_point: 10,
-    mission_link: "",
-    mobile_mission_link: "",
+    mission_link:
+      "https://twitter.com/intent/retweet?tweet_id=1797716610691801164",
+    mobile_mission_link:
+      "https://twitter.com/intent/retweet?tweet_id=1797716610691801164",
   },
   {
     _id: "13",
@@ -133,8 +136,10 @@ const week2WeeklyTasks: TaskSchema[] = [
     mission_type: "twitter",
     mission_description: "Quote tweet DATS & GlobalSign.",
     mission_point: 10,
-    mission_link: "",
-    mobile_mission_link: "",
+    mission_link:
+      "https://twitter.com/intent/retweet?tweet_id=1797716610691801164",
+    mobile_mission_link:
+      "https://twitter.com/intent/retweet?tweet_id=1797716610691801164",
   },
   {
     _id: "14",
@@ -151,8 +156,9 @@ const week2WeeklyTasks: TaskSchema[] = [
     mission_type: "joinYoutube",
     mission_description: "Subscribe to our YouTube channel.",
     mission_point: 30,
-    mission_link: "",
-    mobile_mission_link: "",
+    mission_link: "https://www.youtube.com/@datsproject?sub_confirmation=1",
+    mobile_mission_link:
+      "https://www.youtube.com/@datsproject?sub_confirmation=1",
   },
   {
     _id: "16",
@@ -160,8 +166,8 @@ const week2WeeklyTasks: TaskSchema[] = [
     mission_type: "joinLinkedIn",
     mission_description: "Follow us on LinkedIn for professional updates.",
     mission_point: 30,
-    mission_link: "",
-    mobile_mission_link: "",
+    mission_link: "https://www.linkedin.com/company/dats-project",
+    mobile_mission_link: "https://www.linkedin.com/company/dats-project",
   },
   {
     _id: "17",
