@@ -30,21 +30,44 @@ const MissionHandler: React.FC<MissinHandlerProps> = ({
 
   if (type === "dailyCheck") {
     return (
-      <div className="py-2 space-y-4">
+      <div className="py-2 flex items-center justify-center w-full space-y-4">
         <button
           onClick={() => {
             {
               !loading ? triggerPointUser(userId, _id) : null;
             }
           }}
-          className={`text-center text-white rounded-full py-3 w-full font-bold ${
-            !informationLoading
-              ? "bg-primary"
-              : "cursor-not-allowed bg-white/50"
-          }`}
+          className={`border hover:scale-105 transition-all  w-1/2 m-auto rounded-full px-6 text-center py-2
+              bg-gradient-to-r from-zinc-300 to-sky-500 font-bold text-transparent text-base/6 bg-clip-text ${
+                !informationLoading
+                  ? "bg-primary"
+                  : "cursor-not-allowed bg-white/50"
+              }`}
           disabled={informationLoading}
         >
-          <span>I am here!</span>
+          I am here!
+        </button>
+      </div>
+    );
+  }
+  if (type === "discord") {
+    return (
+      <div className="py-2 flex items-center justify-center w-full space-y-4">
+        <button
+          onClick={() => {
+            {
+              !loading ? triggerPointUser(userId, _id) : null;
+            }
+          }}
+          className={`border hover:scale-105 transition-all  w-1/2 m-auto rounded-full px-6 text-center py-2
+              bg-gradient-to-r from-zinc-300 to-sky-500 font-bold text-transparent text-base/6 bg-clip-text ${
+                !informationLoading
+                  ? "bg-primary"
+                  : "cursor-not-allowed bg-white/50"
+              }`}
+          disabled={informationLoading}
+        >
+          Check Out
         </button>
       </div>
     );
@@ -59,7 +82,7 @@ const MissionHandler: React.FC<MissinHandlerProps> = ({
             // trigerInformation(userId, _id, account as string);
           }}
           // className={`text-center text-white rounded-full py-3 w-full font-bold ${
-            // isConnected ? "bg-primary" : "bg-white/50 cursor-not-allowed"
+          // isConnected ? "bg-primary" : "bg-white/50 cursor-not-allowed"
           // }`}
           // disabled={!isConnected}
         >
