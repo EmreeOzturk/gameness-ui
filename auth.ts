@@ -2,7 +2,7 @@ import NextAuth, { type DefaultSession } from "next-auth";
 import Twitter from "next-auth/providers/twitter";
 import type { TwitterProfile } from "next-auth/providers/twitter";
 import type { ProfileCallback } from "next-auth/providers";
-import clientPromise from "./app/lib/db";
+import clientPromise from "./app/lib/mongoAdapter";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { ObjectId } from "mongodb";
 // declare module "next-auth" {
