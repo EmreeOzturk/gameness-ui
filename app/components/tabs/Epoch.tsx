@@ -34,8 +34,8 @@ const Epoch: React.FC<EpochTabProps> = async ({
   return (
     <div className="w-full select-none text-zinc-300 overflow-hidden relative h-full rounded-2xl p-4 lg:p-10  font-bold  bg-gradient-to-t from-slate-950 via-slate-900 to-[#0282C5]">
       <p className="text-3xl lg:text-4xl">{title}</p>
-      <div className="flex flex-col lg:flex-row justify-between text-center  lg:w-4/5 gap-10 lg:text-3xl mt-6 items-center  md:px-6 mx-auto">
-        <p>
+      <div className="flex flex-col lg:flex-row justify-around text-center   gap-10 lg:text-2xl mt-6 items-center  md:px-6 mx-auto">
+        <p className="text-2xl ">
           Weekly Missions{" "}
           {weeklyTasks.length === 0
             ? "(0/0)"
@@ -50,7 +50,7 @@ const Epoch: React.FC<EpochTabProps> = async ({
       </div>
       <div className="flex flex-col lg:flex-row items-start mt-4  gap-4 h-full justify-between">
         <MissionSection data={weeklyTasks} />
-        <p className="flex lg:hidden mx-auto">
+        <p className="flex  text-2xl lg:hidden mx-auto">
           Daily Missions{" "}
           {dailyTasks.length === 0
             ? "(0/0)"
