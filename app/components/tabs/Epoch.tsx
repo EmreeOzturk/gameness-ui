@@ -1,7 +1,6 @@
 import { TaskSchema } from "@/app/data/missions";
 import MissionSection from "./MissionSection";
-import clientPromise from "@/app/lib/db";
-
+import Task from "@/app/models/TaskModel";
 type EpochTabProps = {
   title: string;
   description: string;
@@ -9,28 +8,29 @@ type EpochTabProps = {
   dailyTasks: TaskSchema[];
   weeklyTasks: TaskSchema[];
 };
-
 const Epoch: React.FC<EpochTabProps> = async ({
   title,
   description,
   points,
-  weeklyTasks,
-  dailyTasks,
+  // weeklyTasks,
+  // dailyTasks,
 }) => {
-  // const client = await clientPromise;
-  // const db = client.db("dats_task");
-  // const collection = db.collection("task");
-  // const fetchData = async () => {
-  //   try {
-  //     const res = await collection.find({}).toArray();
-  //     return res;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // const tasks = await fetchData();
-  // const weeklyTasks = tasks?.filter((task) => !!task?.weekly === false);
-  // const dailyTasks = tasks?.filter((task) => !!task?.weekly);
+  const tasks: TaskSchema[] = (await Task.find({})).map((task) => {
+    return {
+      _id: task._id.toString(),
+      mission_title: task.mission_title,
+      mission_description: task.mission_description,
+      mission_point: task.mission_point,
+      mission_type: task.mission_type,
+      weekly: task.weekly,
+      mission_joiners: task.mission_joiners,
+      mission_link: task.mission_link,
+      mobile_mission_link: task.mobile_mission_link,
+    } as TaskSchema;
+  });
+
+  const dailyTasks = tasks.filter((task) => task.weekly);
+  const weeklyTasks = tasks.filter((task) => !task.weekly);
   return (
     <div className="w-full select-none text-zinc-300 overflow-hidden relative h-full rounded-2xl p-4 lg:p-10  font-bold  bg-gradient-to-t from-slate-950 via-slate-900 to-[#0282C5]">
       <p className="text-3xl lg:text-4xl">{title}</p>
