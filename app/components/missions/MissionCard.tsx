@@ -1,14 +1,13 @@
 "use client";
 import type { TaskSchema } from "@/app/data/missions";
 import { WobbleCard } from "../ui/wobble-card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import MissionHandler from "./MissionHandler";
 import MissionLink from "./MissionLink";
@@ -30,7 +29,12 @@ const MissionCard: React.FC<MissionCardProps> = ({
   isDone,
 }) => {
   const [open, setOpen] = useState(false);
-
+  useEffect(() => {
+    console.log("is done changedddddddddddddddddddddd")
+    if (isDone) {
+      setOpen(false);
+    }
+  }, [isDone]);
   return (
     <>
       <WobbleCard containerClassName="lg:h-48  h-full relative select-none">
@@ -72,34 +76,34 @@ const MissionCard: React.FC<MissionCardProps> = ({
           </DialogHeader>
           {mission_type === "joinTelegram" && (
             <>
-              <DialogDescription >
+              <DialogDescription>
                 1. Join the{" "}
                 <Link href="/" className="text-sky-500 cursor-pointer">
                   DATS Project
                 </Link>{" "}
                 Telegram group then come back to mission page.
               </DialogDescription>
-              <DialogDescription >
+              <DialogDescription>
                 2. Ask new mission page code from{" "}
                 <Link href="/" className="text-sky-500 cursor-pointer">
                   @DATSProjectBot
                 </Link>
               </DialogDescription>
-              <DialogDescription >
+              <DialogDescription>
                 3. Fill the input with code and done the mission.
               </DialogDescription>
             </>
           )}
           {mission_type === "joinDiscord" && (
             <>
-              <DialogDescription >
+              <DialogDescription>
                 1. Join the{" "}
                 <Link href="/" className="text-sky-500 cursor-pointer">
                   DATS Project
                 </Link>{" "}
                 Discord Server.
               </DialogDescription>
-              <DialogDescription >
+              <DialogDescription>
                 2. Request the mission page code from the{" "}
                 <span className="text-sky-500">#code-request</span> chat on
                 Discord by clicking the{" "}
@@ -108,7 +112,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
                 </span>
                 button.
               </DialogDescription>
-              <DialogDescription >
+              <DialogDescription>
                 3. Fill the input with code and done the mission.
               </DialogDescription>
             </>
