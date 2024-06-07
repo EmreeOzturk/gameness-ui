@@ -8,10 +8,12 @@ import { redirect } from "next/navigation";
 import TotalXP from "./TotalXP";
 import { tabs } from "@/app/data/tabs";
 
+
+export const dynamic = "force-dynamic";
 const MissionsPage = async () => {
   const session = (await auth()) as any;
   if (!session) return redirect("/");
-
+  console.log("revalidateddddddddddddddddddddddddddddddddddddd")
   return (
     <>
       <MobileMenu />
