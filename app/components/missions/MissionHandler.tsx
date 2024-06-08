@@ -11,8 +11,8 @@ type MissinHandlerProps = {
 import { useInformation } from "@/app/hooks/useInformation";
 import { usePointUser } from "@/app/hooks/usePointUser";
 import { useState } from "react";
-// import ConnectButton from "../ConnectButton";
-// import { useAccount } from "wagmi";
+import ConnectButton from "../ConnectButton";
+import { useAccount } from "wagmi";
 const MissionHandler: React.FC<MissinHandlerProps> = ({
   userId,
   _id,
