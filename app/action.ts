@@ -12,7 +12,6 @@ export default async function signWithX() {
 export async function pointUser(form: FormData) {
   const userID = form.get("userId");
   const taskID = form.get("_id");
-  console.log("pointUser", userID, taskID);
   const response = await fetch(
     process.env.NEXT_PUBLIC_BACKEND_URL + "/api/pointUser",
     {
@@ -30,7 +29,6 @@ export async function pointUser(form: FormData) {
 
   const data = await response.json();
   if (data) {
-    console.log(data);
     revalidatePath("/missions");
   }
   return data;
@@ -53,7 +51,6 @@ export async function getTasks(value: string) {
         mobile_mission_link: task.mobile_mission_link,
       } as TaskSchema;
     });
-    // console.log(tasks);
     return tasks;
   } catch (error) {
     return { error };
