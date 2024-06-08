@@ -14,6 +14,8 @@ export async function pointUser(
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
       },
       body: JSON.stringify({ userID, taskID }),
     }
