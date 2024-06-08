@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import CollapsableNavbar from "../components/navbar";
-import Header from "../components/header";
 import Web3ModalProvider from "@/app/providers/WagmiProvider";
 import { cookieToInitialState } from "wagmi";
 import { headers } from "next/headers";
@@ -17,11 +16,11 @@ export default function RootLayout({
 }>) {
   const initialState = cookieToInitialState(config, headers().get("cookie"));
   return (
-    // <Web3ModalProvider initialState={initialState}>
-    <>
-      <CollapsableNavbar />
-      {children}
-    </>
-    // </Web3ModalProvider>
+    <Web3ModalProvider initialState={initialState}>
+      <>
+        <CollapsableNavbar />
+        {children}
+      </>
+    </Web3ModalProvider>
   );
 }
