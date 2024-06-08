@@ -11,6 +11,7 @@ export async function pointUser(
     process.env.NEXT_PUBLIC_BACKEND_URL + "/api/pointUser",
     {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
