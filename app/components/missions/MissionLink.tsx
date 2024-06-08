@@ -23,12 +23,10 @@ const MissionLink: React.FC<MissionLinkProps> = ({
   const { triggerPointUser, error, loading, response } = usePointUser();
   const router = useRouter();
 
-  console.log(response);
   useEffect(() => {
     if (response) {
       setOpen(false);
       router.refresh();
-      console.log("is doneeeeeeee", isDone, mission_title);
     }
   }, [response]);
   return (

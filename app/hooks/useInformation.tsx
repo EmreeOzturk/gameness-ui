@@ -24,7 +24,6 @@ export function useInformation(): UseInformationResult {
     taskID: string,
     info: string
   ) => {
-    console.log("trigerInformation", userID, taskID, info);
     setLoading(true);
     setError(null);
     const loadingToastId = toast.loading("Setting data...");

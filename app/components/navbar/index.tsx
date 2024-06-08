@@ -16,8 +16,6 @@ import { Session } from "next-auth";
 import Image from "next/image";
 const CollapsableNavbar = async () => {
   const session = (await auth()) as Session;
-  console.log(session);
-  // console.log(session?.user?.twitterId);
   return (
     <nav className="bg-slate-800 hidden gap-4 lg:flex flex-col justify-start py-6 items-start fixed left-0 top-0 overflow-hidden w-12 hover:w-60 group transition-all duration-300 h-screen z-30">
       <div className="opacity-0 absolute top-6 left-0 right-0 duration-300  group-hover:opacity-100 flex flex-col items-center justify-start pt-6 w-5/6 h-56 rounded-lg bg-slate-800 border mx-auto">

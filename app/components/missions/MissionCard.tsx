@@ -50,7 +50,6 @@ const MissionCard: React.FC<MissionCardProps> = ({
     if (response) {
       setOpen(false);
       router.refresh();
-      console.log("is doneeeeeeee", isDone, mission_title);
       setIsDoneMission(true);
     }
   }, [response]);
