@@ -1,46 +1,12 @@
 import NextAuth, { type DefaultSession } from "next-auth";
 import Twitter from "next-auth/providers/twitter";
 import type { TwitterProfile } from "next-auth/providers/twitter";
-import type { ProfileCallback } from "next-auth/providers";
 import clientPromise from "./app/lib/mongoAdapter";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { ObjectId } from "mongodb";
-// declare module "next-auth" {
-//   interface Session {
-//     user: {
-//       id: number;
-//       name: string;
-//       image: string;
-//       twitter: string;
-//       refId: string;
-//       screenName: string;
-//       discord: string;
-//       telegram: string;
-//       walletAddress: string;
-//       totalPoints: number;
-//       finishedMissions: string[];
-//       refList: string[];
-//       refPoints: number;
-//       refMultiplier: number;
-//     };
-//   }
-// }
-
-//  refId: string;
-//     screenName?: string;
-//     twitter: string;
-//     discord: string;
-//     telegram: string;
-//     walletAddress: string;
-//     totalPoints: number;
-//     finishedMissions: string[];
-//     refList: string[];
-//     refPoints: number;
-//     refMultiplier: number;
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: MongoDBAdapter(clientPromise),
-  debug: true,
   session: {
     strategy: "jwt",
   },
@@ -71,7 +37,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       const user = await (
         await clientPromise
       )
-        .db("test")
+        .db("dats_task")
         .collection("users")
         .findOne({
           _id: new ObjectId(token.sub),
@@ -82,7 +48,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           ...session.user,
           ...user,
         },
-      };
+      } as any;
     },
   },
 });
