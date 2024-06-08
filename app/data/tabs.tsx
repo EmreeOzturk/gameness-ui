@@ -1,5 +1,6 @@
 import Epoch from "../components/tabs/Epoch";
 import {
+  TaskSchema,
   week1DailyTasks,
   week1WeeklyTasks,
   week2DailyTasks,
@@ -9,6 +10,7 @@ import {
   week4DailyTasks,
   week4WeeklyTasks,
 } from "@/app/data/missions";
+
 export const tabs = [
   {
     title: "1. Epoch",
@@ -16,8 +18,8 @@ export const tabs = [
     content: (
       <Epoch
         title="Epoch 1"
+        value="epoch1"
         description="Epoch 1 Description"
-        points={100}
         dailyTasks={week1DailyTasks}
         weeklyTasks={week1WeeklyTasks}
       />
@@ -29,12 +31,13 @@ export const tabs = [
     content: (
       <Epoch
         title="Epoch 2"
+        value="epoch2"
         description="Epoch 2 Description"
-        points={200}
         dailyTasks={week2DailyTasks}
         weeklyTasks={week2WeeklyTasks}
       />
     ),
+    disabled: true,
   },
   {
     title: "3. Epoch",
@@ -42,13 +45,13 @@ export const tabs = [
     content: (
       <Epoch
         title="Epoch 3"
+        value="epoch3"
         description="Epoch 3 Description"
-        points={300}
         dailyTasks={week3DailyTasks}
         weeklyTasks={week3WeeklyTasks}
       />
     ),
-    // disabled: true,
+    disabled: true,
   },
   {
     title: "4. Epoch",
@@ -56,12 +59,12 @@ export const tabs = [
     content: (
       <Epoch
         title="Epoch 4"
+        value="epoch4"
         description="Epoch 4 Description"
-        points={400}
         dailyTasks={week4DailyTasks}
         weeklyTasks={week4WeeklyTasks}
       />
     ),
-    // disabled: true,
+    disabled: true,
   },
 ];
