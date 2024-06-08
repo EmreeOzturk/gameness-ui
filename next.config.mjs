@@ -7,7 +7,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["abs.twimg.com"],
+    remotePatterns:[
+      {
+        hostname: 'abs.twimg.com',
+      }
+    ]
   },
 };
 
