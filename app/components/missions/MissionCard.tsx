@@ -19,7 +19,12 @@ import { useInformation } from "@/app/hooks/useInformation";
 import { Loader } from "lucide-react";
 import ConnectButton from "../ConnectButton";
 import { abi } from "@/abi/nft-abi";
-import { useAccount, useWriteContract, useReadContract,useBalance } from "wagmi";
+import {
+  useAccount,
+  useWriteContract,
+  useReadContract,
+  useBalance,
+} from "wagmi";
 type MissionCardProps = {
   isDone?: boolean;
   userId: string;
@@ -63,9 +68,16 @@ const MissionCard: React.FC<MissionCardProps> = ({
   //   address: "0x9954745558102400E91847F1357B6b6bd587D79e",
   //   chainId: 9990,
 
-
   // });
   // console.log(result);
+  const walletBalance = useBalance({
+    address: account,
+    chainId: 9990,
+  });
+  const checkWalletBalanceAndValitadeAgung = () => {
+    const value = walletBalance?.data?.value;
+    return value;
+  };
 
   // const result = useReadContract({
   //   abi,
@@ -90,6 +102,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
       setOpen(false);
       router.refresh();
       setIsDoneMission(true);
+      console.log(NFTCollectionName as string, "minted");
     }
   }, [isSuccess]);
 
@@ -125,7 +138,6 @@ const MissionCard: React.FC<MissionCardProps> = ({
           </button>
         </div>
       </WobbleCard>
-
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild></DialogTrigger>
         <DialogContent className="border-none shadow-2xl shadow-blue-950 ">
@@ -170,7 +182,11 @@ const MissionCard: React.FC<MissionCardProps> = ({
             <>
               <DialogDescription>
                 1. Join the{" "}
-                <Link href="/" className="text-sky-500 cursor-pointer">
+                <Link
+                  target="_blank"
+                  href="https://discord.gg/XWmkjtew"
+                  className="text-sky-500 cursor-pointer"
+                >
                   DATS Project
                 </Link>{" "}
                 Discord Server.
@@ -186,6 +202,28 @@ const MissionCard: React.FC<MissionCardProps> = ({
               </DialogDescription>
               <DialogDescription>
                 3. Fill the input with code and done the mission.
+              </DialogDescription>
+            </>
+          )}
+          {mission_type === "faucet" && (
+            <>
+              <DialogDescription>
+                1. Connect your wallet to the mission page.
+              </DialogDescription>
+              <DialogDescription>
+                2. Request the tokens from the faucet by complete steps in the
+                link.{" "}
+                <Link
+                  target="_blank"
+                  href="https://docs.peaq.network/docs/learn/token-and-token-utility/agung-token-faucet/"
+                  className="text-sky-500"
+                >
+                  AGUNG Token Faucet
+                </Link>{" "}
+                button.
+              </DialogDescription>
+              <DialogDescription>
+                3. Check your wallet balance and done the mission.
               </DialogDescription>
             </>
           )}
@@ -303,7 +341,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
                   className="py-2 space-y-4"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    trigerInformation(userId, _id, payload);
+                    trigerInformation(userId, _id, payload.trim());
                   }}
                 >
                   <input
@@ -371,6 +409,37 @@ const MissionCard: React.FC<MissionCardProps> = ({
                     </p>
                   </button>
                 </form>
+              )}
+              {mission_type === "faucet" && (
+                <div className="py-2 space-y-4">
+                  <ConnectButton />
+                  <button
+                    onClick={() => {
+                      const value = checkWalletBalanceAndValitadeAgung();
+                      if (value && value > 0) {
+                        triggerPointUser(userId, _id);
+                      } else {
+                        alert("Please use the faucet first!");
+                      }
+                    }}
+                    className={`text-center text-white rounded-full py-3 w-full font-bold ${
+                      isConnected
+                        ? "bg-primary"
+                        : "bg-white/50 cursor-not-allowed"
+                    }`}
+                    disabled={!isConnected}
+                  >
+                    <p>
+                      {isPending ? (
+                        <Loader className="w-6 h-6  text-zinc-300 mx-auto animate-spin" />
+                      ) : (
+                        <span className="text-zinc-300">
+                          Check Wallet Balance
+                        </span>
+                      )}
+                    </p>
+                  </button>
+                </div>
               )}
             </>
           )}
