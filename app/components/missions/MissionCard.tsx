@@ -10,8 +10,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import MissionHandler from "./MissionHandler";
-import MissionLink from "./MissionLink";
 import Link from "next/link";
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import { useEffect, useState } from "react";
@@ -20,7 +18,8 @@ import { usePointUser } from "@/app/hooks/usePointUser";
 import { useInformation } from "@/app/hooks/useInformation";
 import { Loader } from "lucide-react";
 import ConnectButton from "../ConnectButton";
-import { useAccount } from "wagmi";
+import { abi } from "@/abi/nft-abi";
+import { useAccount, useWriteContract, useReadContract,useBalance } from "wagmi";
 type MissionCardProps = {
   isDone?: boolean;
   userId: string;
@@ -40,12 +39,17 @@ const MissionCard: React.FC<MissionCardProps> = ({
   const router = useRouter();
   const session = useSession();
   const { address: account, isConnected } = useAccount();
+  const { writeContract, isSuccess, isPending } = useWriteContract();
   const [payload, setPayload] = useState<string>("");
   const handlePayload = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPayload(e.target.value);
   };
   const { triggerPointUser, error, loading, response } = usePointUser();
-  const { loading: informationLoading, trigerInformation } = useInformation();
+  const {
+    loading: informationLoading,
+    trigerInformation,
+    response: informationResponse,
+  } = useInformation();
   const [isDoneMission, setIsDoneMission] = useState(isDone);
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -55,6 +59,44 @@ const MissionCard: React.FC<MissionCardProps> = ({
       setIsDoneMission(true);
     }
   }, [response]);
+  // const result = useBalance({
+  //   address: "0x9954745558102400E91847F1357B6b6bd587D79e",
+  //   chainId: 9990,
+
+
+  // });
+  // console.log(result);
+
+  // const result = useReadContract({
+  //   abi,
+  //   address: "0x6FAEC3842AC58297eEfae5720B87B73835a1e008",
+  //   functionName: "tokenURI",
+  //   args: [1],
+  // });
+
+  // console.log(result);
+
+  useEffect(() => {
+    if (informationResponse) {
+      setOpen(false);
+      router.refresh();
+      setIsDoneMission(true);
+    }
+  }, [informationResponse]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      trigerInformation(userId, _id, account as string);
+      setOpen(false);
+      router.refresh();
+      setIsDoneMission(true);
+    }
+  }, [isSuccess]);
+
+  const NFTCollectionName =
+    mission_type === "wallet" &&
+    mission_title.split(" ")[1].trim().toLowerCase().toString();
+
   return (
     <>
       <WobbleCard containerClassName="lg:h-48  h-full relative select-none">
@@ -100,14 +142,22 @@ const MissionCard: React.FC<MissionCardProps> = ({
             <>
               <DialogDescription>
                 1. Join the{" "}
-                <Link href="/" className="text-sky-500 cursor-pointer">
+                <Link
+                  target="_blank"
+                  href="https://t.me/datsprojectofficial"
+                  className="text-sky-500 cursor-pointer"
+                >
                   DATS Project
                 </Link>{" "}
                 Telegram group then come back to mission page.
               </DialogDescription>
               <DialogDescription>
                 2. Ask new mission page code from{" "}
-                <Link href="/" className="text-sky-500 cursor-pointer">
+                <Link
+                  target="_blank"
+                  href="https://t.me/datsdevtestbot"
+                  className="text-sky-500 cursor-pointer"
+                >
                   @DATSProjectBot
                 </Link>
               </DialogDescription>
@@ -214,7 +264,22 @@ const MissionCard: React.FC<MissionCardProps> = ({
                   <ConnectButton />
                   <button
                     onClick={() => {
-                      trigerInformation(userId, _id, account as string);
+                      writeContract({
+                        abi,
+                        address:
+                          NFTCollectionName === "dats"
+                            ? "0xa913B9A5793D11999C6a48d656E2725114399c9C"
+                            : NFTCollectionName === "blaze"
+                            ? "0x704c426Cc022BCc70Bd8a060b6dF8da0714449EB"
+                            : NFTCollectionName === "aegis"
+                            ? "0x6FAEC3842AC58297eEfae5720B87B73835a1e008"
+                            : NFTCollectionName === "datsguardian"
+                            ? "0xa913B9A5793D11999C6a48d656E2725114399c9C"
+                            : NFTCollectionName === "vortex"
+                            ? "0x6a34720D4176c3c8a61b1DEBB4A3BF8BD09c5c4E"
+                            : "0x0",
+                        functionName: "mintArtwork",
+                      });
                     }}
                     className={`text-center text-white rounded-full py-3 w-full font-bold ${
                       isConnected
@@ -223,7 +288,13 @@ const MissionCard: React.FC<MissionCardProps> = ({
                     }`}
                     disabled={!isConnected}
                   >
-                    <span>Done the task</span>
+                    <p>
+                      {isPending ? (
+                        <Loader className="w-6 h-6  text-zinc-300 mx-auto animate-spin" />
+                      ) : (
+                        <span className="text-zinc-300">Mint NFT</span>
+                      )}
+                    </p>
                   </button>
                 </div>
               )}
@@ -249,12 +320,18 @@ const MissionCard: React.FC<MissionCardProps> = ({
                     type="submit"
                     className={`text-center text-white rounded-full py-3 w-full font-bold ${
                       !informationLoading && payload
-                        ? "bg-primary"
-                        : "cursor-not-allowed bg-white/50"
+                        ? "bg-transparent border hover:scale-[1.03] transition-all"
+                        : "cursor-not-allowed bg-zinc-600"
                     }`}
                     disabled={informationLoading || !payload}
                   >
-                    <span>{mission_title}</span>
+                    <p>
+                      {informationLoading ? (
+                        <Loader className="w-6 h-6  text-zinc-300 mx-auto animate-spin" />
+                      ) : (
+                        <span className="text-zinc-300">{mission_title}</span>
+                      )}
+                    </p>
                   </button>
                 </form>
               )}
@@ -280,12 +357,18 @@ const MissionCard: React.FC<MissionCardProps> = ({
                     type="submit"
                     className={`text-center text-white rounded-full py-3 w-full font-bold ${
                       !informationLoading && payload
-                        ? "bg-primary"
-                        : "cursor-not-allowed bg-white/50"
+                        ? "bg-transparent border hover:scale-[1.03] transition-all"
+                        : "cursor-not-allowed bg-zinc-600"
                     }`}
                     disabled={informationLoading || !payload}
                   >
-                    <span>{mission_title}</span>
+                    <p>
+                      {informationLoading ? (
+                        <Loader className="w-6 h-6  text-zinc-300 mx-auto animate-spin" />
+                      ) : (
+                        <span className="text-zinc-300">{mission_title}</span>
+                      )}
+                    </p>
                   </button>
                 </form>
               )}
