@@ -38,7 +38,7 @@ export async function getTasks(value: string) {
   try {
     await connectMongo();
     const res = await Task.find({ epoch: value });
-    console.log(res)
+    // console.log(res)
     const tasks = res.map((task) => {
       return {
         _id: task._id.toString(),
@@ -51,7 +51,7 @@ export async function getTasks(value: string) {
         mission_link: task._doc.mission_link,
         mobile_mission_link: task._doc.mobile_mission_link,
         daily: task._doc.daily,
-        lastCheckTime: task._doc.lastCheckTime,
+        mission_date: task._doc.mission_date,
       } as TaskSchema;
     });
     return tasks;
