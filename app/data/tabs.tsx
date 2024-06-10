@@ -1,15 +1,15 @@
 import Epoch from "../components/tabs/Epoch";
-import {
-  TaskSchema,
-  week1DailyTasks,
-  week1WeeklyTasks,
-  week2DailyTasks,
-  week2WeeklyTasks,
-  week3DailyTasks,
-  week3WeeklyTasks,
-  week4DailyTasks,
-  week4WeeklyTasks,
-} from "@/app/data/missions";
+// import {
+//   TaskSchema,
+//   week1DailyTasks,
+//   week1WeeklyTasks,
+//   week2DailyTasks,
+//   week2WeeklyTasks,
+//   week3DailyTasks,
+//   week3WeeklyTasks,
+//   week4DailyTasks,
+//   week4WeeklyTasks,
+// } from "@/app/data/missions";
 
 export const tabs = [
   {
@@ -20,8 +20,8 @@ export const tabs = [
         title="Epoch 1"
         value="epoch1"
         description="Epoch 1 Description"
-        dailyTasks={week1DailyTasks}
-        weeklyTasks={week1WeeklyTasks}
+        // dailyTasks={week1DailyTasks}
+        // weeklyTasks={week1WeeklyTasks}
       />
     ),
   },
@@ -33,11 +33,11 @@ export const tabs = [
         title="Epoch 2"
         value="epoch2"
         description="Epoch 2 Description"
-        dailyTasks={week2DailyTasks}
-        weeklyTasks={week2WeeklyTasks}
+        // dailyTasks={week2DailyTasks}
+        // weeklyTasks={week2WeeklyTasks}
       />
     ),
-    disabled: true,
+    // disabled: true,
   },
   {
     title: "3. Epoch",
@@ -47,11 +47,11 @@ export const tabs = [
         title="Epoch 3"
         value="epoch3"
         description="Epoch 3 Description"
-        dailyTasks={week3DailyTasks}
-        weeklyTasks={week3WeeklyTasks}
+        // dailyTasks={week3DailyTasks}
+        // weeklyTasks={week3WeeklyTasks}
       />
     ),
-    disabled: true,
+    // disabled: true,
   },
   {
     title: "4. Epoch",
@@ -61,10 +61,10 @@ export const tabs = [
         title="Epoch 4"
         value="epoch4"
         description="Epoch 4 Description"
-        dailyTasks={week4DailyTasks}
-        weeklyTasks={week4WeeklyTasks}
+        // dailyTasks={week4DailyTasks}
+        // weeklyTasks={week4WeeklyTasks}
       />
     ),
-    disabled: true,
+    // disabled: true,
   },
 ];
