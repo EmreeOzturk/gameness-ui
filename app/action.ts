@@ -38,17 +38,20 @@ export async function getTasks(value: string) {
   try {
     await connectMongo();
     const res = await Task.find({ epoch: value });
+    console.log(res)
     const tasks = res.map((task) => {
       return {
         _id: task._id.toString(),
-        mission_title: task.mission_title,
-        mission_description: task.mission_description,
-        mission_point: task.mission_point,
-        mission_type: task.mission_type,
-        weekly: task.weekly,
-        mission_joiners: task.mission_joiners,
-        mission_link: task.mission_link,
-        mobile_mission_link: task.mobile_mission_link,
+        mission_title: task._doc.mission_title,
+        mission_description: task._doc.mission_description,
+        mission_point: task._doc.mission_point,
+        mission_type: task._doc.mission_type,
+        epoch: task._doc.epoch,
+        mission_joiners: task._doc.mission_joiners,
+        mission_link: task._doc.mission_link,
+        mobile_mission_link: task._doc.mobile_mission_link,
+        daily: task._doc.daily,
+        lastCheckTime: task._doc.lastCheckTime,
       } as TaskSchema;
     });
     return tasks;
