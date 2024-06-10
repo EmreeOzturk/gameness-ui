@@ -73,7 +73,7 @@ export type TaskSchema = {
 //   {
 //     _id: "17",
 //     mission_title: "Obtain Tokens from Faucet",
-//     mission_type: "wallet",
+//     mission_type: "faucet",
 //     mission_description: "Obtain tokens from the faucet.",
 //     mission_point: 40,
 //   },
