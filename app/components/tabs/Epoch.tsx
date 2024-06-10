@@ -7,8 +7,8 @@ import { Session } from "next-auth";
 type EpochTabProps = {
   title: string;
   description: string;
-  dailyTasks: TaskSchema[];
-  weeklyTasks: TaskSchema[];
+  // dailyTasks: TaskSchema[];
+  // weeklyTasks: TaskSchema[];
   value: string;
 };
 
@@ -21,8 +21,9 @@ const Epoch: React.FC<EpochTabProps> = async ({
 }) => {
   const tasks = (await getTasks(value)) as TaskSchema[];
   const session = (await auth()) as Session;
-  const dailyTasks = tasks.filter((task) => task.weekly);
-  const weeklyTasks = tasks.filter((task) => !task.weekly);
+  // console.log(tasks)
+  const dailyTasks = tasks.filter((task) => task.daily);
+  const weeklyTasks = tasks.filter((task) => !task.daily);
   // const finishedDailyTasks = dailyTasks.filter((task) =>
   //   session.user?.finishedMissions.includes(task._id)
   // );
