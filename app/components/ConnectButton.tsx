@@ -5,7 +5,6 @@ import { useAccount } from "wagmi";
 import { motion } from "framer-motion";
 import { formatAddress } from "../lib/utils";
 
-
 const ConnectButton = () => {
   const { open } = useWeb3Modal();
   const { address: account, isConnected } = useAccount();
