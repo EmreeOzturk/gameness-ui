@@ -4,6 +4,7 @@ import Task from "@/app/models/TaskModel";
 import { getTasks } from "@/app/action";
 import { auth } from "@/auth";
 import { Session } from "next-auth";
+import { format } from "date-fns";
 type EpochTabProps = {
   title: string;
   description: string;
@@ -11,6 +12,8 @@ type EpochTabProps = {
   // weeklyTasks: TaskSchema[];
   value: string;
 };
+
+export const dynamic = "force-dynamic";
 
 const Epoch: React.FC<EpochTabProps> = async ({
   title,
@@ -21,8 +24,11 @@ const Epoch: React.FC<EpochTabProps> = async ({
 }) => {
   const tasks = (await getTasks(value)) as TaskSchema[];
   const session = (await auth()) as Session;
-  // console.log(tasks)
-  const dailyTasks = tasks.filter((task) => task.daily);
+  const today = new Date();
+  const formattedToday = format(today, "yyyy-MM-dd");
+  const dailyTasks = tasks.filter(
+    (task) => task.daily && task.mission_date === formattedToday
+  );
   const weeklyTasks = tasks.filter((task) => !task.daily);
   // const finishedDailyTasks = dailyTasks.filter((task) =>
   //   session.user?.finishedMissions.includes(task._id)
