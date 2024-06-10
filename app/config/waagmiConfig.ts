@@ -5,23 +5,23 @@ import { type Chain } from "viem";
 export const projectId = "72bd0eb664a82b72267d266ccc528933";
 
 if (!projectId) throw new Error("Project ID is not defined");
-export const krestNetwork = {
-  id: 2241,
-  name: "Krest Network",
+export const agungNetwork = {
+  id: 9990,
+  name: "Agung Test Network",
   nativeCurrency: {
-    name: "krest",
-    symbol: "KRST",
+    name: "Agung",
+    symbol: "AGNG",
     decimals: 18,
   },
   rpcUrls: {
     default: {
-      http: ["https://erpc-krest.peaq.network"],
+      http: ["https://rpcpc1-qa.agung.peaq.network"],
     },
   },
   blockExplorers: {
     default: {
       name: "Subscan",
-      url: "https://krest.subscan.io/",
+      url: "https://agung.subscan.io/",
     },
   },
 } as const satisfies Chain;
@@ -42,7 +42,7 @@ const metadata = {
 
 // Create {wagmiConfig
 export const config = defaultWagmiConfig({
-  chains: [mainnet, krestNetwork], // required
+  chains: [ agungNetwork], // required
   projectId, // required
   metadata, // required
   ssr: true,
