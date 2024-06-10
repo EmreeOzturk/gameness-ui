@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 import TotalXP from "./TotalXP";
 import { tabs } from "@/app/data/tabs";
 import { Session } from "next-auth";
-
+export const dynamic = "force-dynamic";
 const MissionsPage = async () => {
   const session = (await auth()) as Session;
   if (!session) return redirect("/");
