@@ -9,7 +9,7 @@ export default function Home() {
         <Header />
       </div>
       <HeroSection />
-      <BackgroundBeams />
+      {/* <BackgroundBeams /> */}
     </main>
   );
 }
