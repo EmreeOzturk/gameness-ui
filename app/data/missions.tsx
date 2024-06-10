@@ -16,7 +16,7 @@ export type TaskSchema = {
   mission_joiners?: string[];
   daily: boolean;
   epoch: string;
-  lastCheckTime?: string;
+  mission_date?: string;
 };
 
 // const week1WeeklyTasks: TaskSchema[] = [
@@ -86,6 +86,8 @@ export type TaskSchema = {
 //     mission_type: "dailyCheck",
 //     mission_description: "Check in daily to earn points.",
 //     mission_point: 5,
+//     mission_date: "2024-06-10",
+//
 //   },
 //   {
 //     _id: "8",
@@ -96,6 +98,9 @@ export type TaskSchema = {
 //     mission_point: 20,
 //     mission_link: "https://twitter.com/intent/post?text=%23depin",
 //     mobile_mission_link: "https://twitter.com/intent/post?text=%23depin",
+//     mission_date: "2024-06-10",
+//    daily : true
+// epoch: "epoch1",
 //   },
 //   {
 //     _id: "9",
@@ -107,7 +112,11 @@ export type TaskSchema = {
 //       "https://twitter.com/intent/like?tweet_id=1797716610691801164",
 //     mobile_mission_link:
 //       "https://twitter.com/intent/like?tweet_id=1797716610691801164",
+//  mission_date: "2024-06-10",
+//    daily : true
+// epoch: "epoch1",
 //   },
+
 //   {
 //     _id: "10",
 //     mission_title: "Discord Greetings",
@@ -115,6 +124,9 @@ export type TaskSchema = {
 //     mission_description:
 //       "Post a 'good morning' or 'good night' message on Discord.",
 //     mission_point: 5,
+//  mission_date: "2024-06-10",
+//    daily : true
+// epoch: "epoch1",
 //   },
 // ];
 
@@ -158,7 +170,7 @@ export type TaskSchema = {
 //   {
 //     _id: "15",
 //     mission_title: "Subscribe on YouTube",
-//     mission_type: "joinYoutube",
+//     mission_type: "visit_website",
 //     mission_description: "Subscribe to our YouTube channel.",
 //     mission_point: 30,
 //     mission_link: "https://www.youtube.com/@datsproject?sub_confirmation=1",
@@ -168,7 +180,7 @@ export type TaskSchema = {
 //   {
 //     _id: "16",
 //     mission_title: "Follow on LinkedIn",
-//     mission_type: "joinLinkedIn",
+//     mission_type: "visit_website",
 //     mission_description: "Follow us on LinkedIn for professional updates.",
 //     mission_point: 30,
 //     mission_link: "https://www.linkedin.com/company/dats-project",
