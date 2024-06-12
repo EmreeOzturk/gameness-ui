@@ -126,7 +126,7 @@ export const FadeInDiv = ({
           className={cn(
             "w-full absolute h-full top-0 left-0",
             tab.value == "epoch2" ? "h-[240vh]" : "h-[200vh]",
-            isActive(tab) ? "h-fit" : "h-[50rem]",
+            isActive(tab) ? "h-fit" : "h-[30rem]",
             className
           )}
         >
