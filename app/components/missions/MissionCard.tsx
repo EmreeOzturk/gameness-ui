@@ -433,7 +433,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
                     disabled={!isConnected}
                   >
                     <p>
-                      {isPending ? (
+                      {loading ? (
                         <Loader className="w-6 h-6  text-zinc-300 mx-auto animate-spin" />
                       ) : (
                         <span className="text-zinc-300">
@@ -445,9 +445,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
                 </div>
               )}
               {mission_type === "inviteFriends" && (
-                <div className="py-2 space-y-4">
-                 
-                </div>
+                <div className="py-2 space-y-4"></div>
               )}
               {mission_type === "download_app" && (
                 <div className="py-2 space-y-4">
