@@ -10,6 +10,7 @@ interface UseInformationResult {
   error: string | null;
   response: CheckInformationResponse | null;
   trigerInformation: (userID: string, taskID: string, info: string) => void;
+  setError: (error: string | null) => void;
 }
 
 export function useInformation(): UseInformationResult {
@@ -48,5 +49,6 @@ export function useInformation(): UseInformationResult {
     error,
     response,
     trigerInformation,
+    setError,
   };
 }
