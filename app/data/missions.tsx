@@ -334,7 +334,7 @@ export type TaskSchema = {
 //   {
 //     _id: "37",
 //     mission_title: "Dedicate Resources",
-//     mission_type: "app",
+//     mission_type: "download_app",
 //     mission_description:
 //       "Dedicate your resources to Super Computer & Blockchain services in DATS Desktop App.",
 //     mission_point: 75,
