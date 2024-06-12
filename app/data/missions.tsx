@@ -190,7 +190,7 @@ export type TaskSchema = {
 //   {
 //     _id: "18",
 //     mission_title: "Download DATS App",
-//     mission_type: "app",
+//     mission_type: "download_app",
 //     mission_description:
 //       "Download the DATS App and dedicate your resources to DDoS Test & Cybersecurity Research.",
 //     mission_point: 75,
@@ -231,7 +231,7 @@ export type TaskSchema = {
 //   {
 //     _id: "23",
 //     mission_title: "Invite Friends to DATS App",
-//     mission_type: "app",
+//     mission_type: "inviteFriends",
 //     mission_description: "Invite friends to the DATS App.",
 //     mission_point: 10,
 //   },
