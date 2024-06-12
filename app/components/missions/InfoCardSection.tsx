@@ -18,6 +18,7 @@ const InfoCardSection = async () => {
   const assignedResource = data.filter(
     (resource: any) => resource?.address === session.user?.walletAddress
   );
+  console.log(session.user)
   const assignedCPU = assignedResource[0]?.assignedCpuCount;
   const assignedBandwidth = assignedResource[0]?.assignedBandwith;
   const assignedResourceCount = assignedResource[0]?.assignedResourceCount;
