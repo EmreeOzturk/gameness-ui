@@ -54,7 +54,10 @@ const MissionCard: React.FC<MissionCardProps> = ({
     loading: informationLoading,
     trigerInformation,
     response: informationResponse,
+    error: informationError,
+    setError: setInformationError,
   } = useInformation();
+
   const [isDoneMission, setIsDoneMission] = useState(isDone);
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -64,12 +67,6 @@ const MissionCard: React.FC<MissionCardProps> = ({
       setIsDoneMission(true);
     }
   }, [response]);
-  // const result = useBalance({
-  //   address: "0x9954745558102400E91847F1357B6b6bd587D79e",
-  //   chainId: 9990,
-
-  // });
-  // console.log(result);
   const walletBalance = useBalance({
     address: account,
     chainId: 9990,
@@ -87,6 +84,12 @@ const MissionCard: React.FC<MissionCardProps> = ({
   // });
 
   // console.log(result);
+
+  useEffect(() => {
+    if (informationError) {
+      setInformationError(null);
+    }
+  }, [open]);
 
   useEffect(() => {
     if (informationResponse) {
@@ -435,6 +438,43 @@ const MissionCard: React.FC<MissionCardProps> = ({
                       ) : (
                         <span className="text-zinc-300">
                           Check Wallet Balance
+                        </span>
+                      )}
+                    </p>
+                  </button>
+                </div>
+              )}
+              {mission_type === "inviteFriends" && (
+                <div className="py-2 space-y-4">
+                 
+                </div>
+              )}
+              {mission_type === "download_app" && (
+                <div className="py-2 space-y-4">
+                  <ConnectButton />
+                  <button
+                    onClick={() => {
+                      trigerInformation(userId, _id, account as string);
+                    }}
+                    className={`text-center text-white rounded-full py-3 w-full font-bold ${
+                      isConnected
+                        ? "bg-primary"
+                        : "bg-white/50 cursor-not-allowed"
+                    }`}
+                    disabled={!isConnected}
+                  >
+                    <p>
+                      {informationLoading ? (
+                        <Loader className="w-6 h-6  text-zinc-300 mx-auto animate-spin" />
+                      ) : (
+                        <span className="text-zinc-300">
+                          {informationError ? (
+                            <span className="text-red-300">
+                              Please first dedicate your resource then try again
+                            </span>
+                          ) : (
+                            "Check ⚡"
+                          )}
                         </span>
                       )}
                     </p>
