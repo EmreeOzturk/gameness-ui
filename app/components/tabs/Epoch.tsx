@@ -1,6 +1,5 @@
 import { TaskSchema } from "@/app/data/missions";
 import MissionSection from "./MissionSection";
-import Task from "@/app/models/TaskModel";
 import { getTasks } from "@/app/action";
 import { auth } from "@/auth";
 import { Session } from "next-auth";
@@ -8,8 +7,6 @@ import { format } from "date-fns";
 type EpochTabProps = {
   title: string;
   description: string;
-  // dailyTasks: TaskSchema[];
-  // weeklyTasks: TaskSchema[];
   value: string;
 };
 
@@ -19,8 +16,6 @@ const Epoch: React.FC<EpochTabProps> = async ({
   title,
   description,
   value,
-  // weeklyTasks,
-  // dailyTasks,
 }) => {
   const tasks = (await getTasks(value)) as TaskSchema[];
   const session = (await auth()) as Session;
