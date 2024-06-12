@@ -38,7 +38,6 @@ export async function getTasks(value: string) {
   try {
     await connectMongo();
     const res = await Task.find({ epoch: value });
-    // console.log(res)
     const tasks = res.map((task) => {
       return {
         _id: task._id.toString(),
